@@ -1,0 +1,40 @@
+.header {
+  height: 60px;
+  background: #393e46;
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  align-items: center;
+
+  .left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      color: #a460ed;
+    }
+  }
+
+  .center {
+    width: 35%;
+    display: flex;
+    gap: 10px;
+
+    p {
+      font-weight: bold;
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    p {
+      &:hover {
+        color: #a460ed;
+        cursor: pointer;
+      }
+    }
+  }
+}
