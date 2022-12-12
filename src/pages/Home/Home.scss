@@ -6,4 +6,25 @@
   .market {
     transition: all 0.5s ease;
   }
+
+  .game {
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+  }
+
+  .products {
+    flex: 5;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
+  .rightMenu {
+    flex: 2;
+    height: 100%;
+  }
 }

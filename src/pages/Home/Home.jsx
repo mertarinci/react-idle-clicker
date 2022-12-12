@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./Home.scss";
 import Market from "../../components/Market/Market";
 import Header from "../../components/Header/Header";
 import { useDispatch, useSelector } from "react-redux";
-import { incrementByAmount } from "../../features/product/productSlice";
+import { incrementByAmount } from "../../features/product/coreSlice";
 
 import Product from "../../components/Product/Product";
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
   const marketWindow = () => {
@@ -15,7 +16,7 @@ function Home() {
   };
 
   const dispatch = useDispatch();
-  const prodState = useSelector((state) => state.product);
+  const prodState = useSelector((state) => state.core.product);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,11 +33,27 @@ function Home() {
     <div className="home">
       <Header />
       <Market className="market" />
-      <Product prd={0} />
-      <Product prd={1} />
-      <button className="btn" onClick={() => marketWindow()}>
+
+      <div className="game">
+        <div className="products">
+          <Product prd={0} />
+          <Product prd={1} />
+          <Product prd={2} />
+          <Product prd={3} />
+          <Product prd={1} />
+          <Product prd={1} />
+          <Product prd={1} />
+          <Product prd={1} />
+        </div>
+
+        <div className="rightMenu"></div>
+      </div>
+
+      {/* <button className="btn" onClick={() => marketWindow()}>
         Market
-      </button>
+      </button> */}
+
+      <Footer />
     </div>
   );
 }

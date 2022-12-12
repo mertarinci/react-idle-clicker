@@ -2,11 +2,11 @@
   height: 60px;
   background: #393e46;
   display: flex;
-  padding: 30px;
   justify-content: space-between;
   align-items: center;
 
   .left {
+    flex: 2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,8 +16,9 @@
   }
 
   .center {
-    width: 35%;
+    flex: 3;
     display: flex;
+    justify-content: center;
     gap: 10px;
 
     p {
@@ -26,9 +27,11 @@
   }
 
   .right {
+    flex: 3;
     display: flex;
+    justify-content: center;
     flex-direction: row;
-    gap: 20px;
+    gap: 15px;
 
     p {
       &:hover {

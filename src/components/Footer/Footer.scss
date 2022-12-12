@@ -1,0 +1,30 @@
+.footer {
+  height: 20px;
+  background-color: #393e46;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 50px;
+
+  .left {
+    &:hover {
+      color: #a460ed;
+      cursor: pointer;
+    }
+  }
+
+  .center {
+    &:hover {
+      color: #a460ed;
+      cursor: pointer;
+    }
+  }
+
+  .right {
+    &:hover {
+      color: #a460ed;
+      cursor: pointer;
+    }
+  }
+}

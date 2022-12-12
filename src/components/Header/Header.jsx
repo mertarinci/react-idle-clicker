@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { numberFormatter } from "../NumberFormatter/numberFormatter";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import "./Header.scss";
 
@@ -8,22 +9,25 @@ function Header() {
     fontWeight: "bold",
   };
 
+  const user = useSelector((state) => state.core.user);
+
   return (
     <div className="header">
       <div className="left">
         <h1>Witch Cauldron</h1>
       </div>
       <div className="center">
-        <ProgressBar progress={30} bgcolor={"#a460ed"} />
-        <p>Level : 1</p>
+        <ProgressBar progress={user.currentExp} bgcolor={"#a460ed"} />
+        <p>Level : {user.level}</p>
       </div>
       <div className="right">
         <p style={makeBold} className="rightMenu-item">
-          Money: 0$
+          Gold: {numberFormatter(user.totalGold)}{" "}
+          <i style={{ color: "gold" }} class="fa-solid fa-coins"></i>
         </p>
         <hr />
         <p style={makeBold} className="rightMenu-item">
-          Class: 1
+          Class: {user.class}
         </p>
         <hr />
         <p style={makeBold} className="rightMenu-item">
