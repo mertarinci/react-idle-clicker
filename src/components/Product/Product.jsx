@@ -98,7 +98,7 @@ function Product({ prd }) {
         </div>
         <div className="bottom">
           <button onClick={() => handleBuyWorker(1)}>
-            1x Worker {numberFormatter(product.workerPrice)}{" "}
+            +1 {"=>"} {numberFormatter(product.workerPrice)}{" "}
             <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
           </button>
           <button
@@ -107,7 +107,7 @@ function Product({ prd }) {
             }
             onClick={() => handleBuyWorker(10)}
           >
-            10x Worker {numberFormatter(product.workerPrice * 10)}{" "}
+            +10 {"=>"} {numberFormatter(product.workerPrice * 10)}{" "}
             <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
           </button>
           <button
@@ -116,7 +116,7 @@ function Product({ prd }) {
             }
             onClick={() => handleBuyWorker(100)}
           >
-            100x Worker {numberFormatter(product.workerPrice * 100)}{" "}
+            +100 {"=>"} {numberFormatter(product.workerPrice * 100)}{" "}
             <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
           </button>
         </div>

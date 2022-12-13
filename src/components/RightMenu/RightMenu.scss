@@ -22,9 +22,33 @@
     border-radius: 20px;
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
     padding: 20px;
 
+    .center {
+      button {
+        width: 200px;
+        height: 50px;
+        background-color: #a460ed;
+        color: white;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+
+        &:hover {
+          background-color: #eeeeee;
+          color: #a460ed;
+          border: 1px solid #a460ed;
+        }
+
+        &:active {
+          opacity: 0.4;
+        }
+      }
+    }
     &::after {
       content: "";
       position: absolute;

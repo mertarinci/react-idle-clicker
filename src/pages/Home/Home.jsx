@@ -10,12 +10,6 @@ import Footer from "../../components/Footer/Footer";
 import RightMenu from "../../components/RightMenu/RightMenu";
 
 function Home() {
-  const marketWindow = () => {
-    const market = document.querySelector(".market").style;
-    market.opacity = 1;
-    market.visibility = "visible";
-  };
-
   const dispatch = useDispatch();
   const prodState = useSelector((state) => state.core.product);
 
@@ -42,18 +36,14 @@ function Home() {
           <Product prd={1} />
           <Product prd={2} />
           <Product prd={3} />
-          <Product prd={1} />
-          <Product prd={1} />
-          <Product prd={1} />
-          <Product prd={1} />
+          <Product prd={4} />
+          <Product prd={5} />
+          <Product prd={6} />
+          <Product prd={7} />
         </div>
 
         <RightMenu />
       </div>
-
-      {/* <button className="btn" onClick={() => marketWindow()}>
-        Market
-      </button> */}
 
       <Footer />
     </div>

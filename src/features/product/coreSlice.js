@@ -37,22 +37,74 @@ const initialState = {
             clickEfficiency: 1,
             worker: 0,
             workerPrice: 10000,
-            color: 'red',
+            color: '#f02828',
             icon: "fa-solid fa-droplet",
             sellPrice: 500
         },
 
         {
             id: 3,
-            name: "Dwarf Pants",
+            name: "Dwarf Shirts ",
             count: 0,
             workerEfficiency: 1,
             clickEfficiency: 1,
             worker: 0,
             workerPrice: 1000000,
-            color: "green",
+            color: "#82f884",
             icon: "fa-solid fa-shirt",
             sellPrice: 1000
+        },
+
+        {
+            id: 4,
+            name: "Moon Dust",
+            count: 0,
+            workerEfficiency: 1,
+            clickEfficiency: 1,
+            worker: 0,
+            workerPrice: 1000000,
+            color: "orange",
+            icon: "fa-solid fa-moon",
+            sellPrice: 10000
+
+        },
+        {
+            id: 5,
+            name: "Witch Apple",
+            count: 0,
+            workerEfficiency: 1,
+            clickEfficiency: 1,
+            worker: 0,
+            workerPrice: 1000000,
+            color: "#a460ed",
+            icon: "fa-solid fa-apple-whole",
+            sellPrice: 10000
+
+        },
+
+        {
+            id: 6,
+            name: "Emerald",
+            count: 0,
+            workerEfficiency: 1,
+            clickEfficiency: 1,
+            worker: 0,
+            workerPrice: 10000000,
+            color: "#50c878",
+            icon: "fa-solid fa-gem",
+            sellPrice: 10000
+        },
+        {
+            id: 7,
+            name: "Diamond",
+            count: 0,
+            workerEfficiency: 1,
+            clickEfficiency: 1,
+            worker: 0,
+            workerPrice: 100000000,
+            color: "#4EE2EC",
+            icon: "fa-solid fa-diamond",
+            sellPrice: 100000
         }
     ],
     user: {

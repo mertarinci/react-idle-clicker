@@ -4,7 +4,7 @@
   position: absolute;
   background: #393e46;
   top: 10%;
-  left: 25%;
+  left: 15%;
   //   display: flex;
   //   justify-content: center;
   //   align-items: center;
@@ -12,9 +12,12 @@
   opacity: 1;
   visibility: hidden;
   overflow: scroll;
+  z-index: 999;
+  border: 5px solid #a460ed;
+  border-radius: 20px;
 
   .marketTitle {
-    color: #00adb5;
+    color: #a460ed;
     font-size: 32px;
     padding: 10px;
   }
@@ -40,6 +43,7 @@
     padding: 10px;
 
     .item {
+      border-radius: 20px;
       background-color: #eeeeee;
       color: #393e46;
       height: 150px;
@@ -62,20 +66,20 @@
       button {
         width: 70%;
         height: 25%;
-        background-color: #00adb5;
+        background-color: #a460ed;
         color: white;
         border: 1px solid transparent;
+        border-radius: 20px;
 
         &:hover {
           background-color: #eeeeee;
-          color: #00adb5;
-          border: 1px solid #00adb5;
+          color: #a460ed;
+          border: 1px solid #a460ed;
         }
 
         &:active {
-          background-color: #00adb5;
-          color: white;
-          border: 1px solid transparent;
+          opacity: 0.4;
+          border: 1px solid #a460ed;
         }
       }
     }
