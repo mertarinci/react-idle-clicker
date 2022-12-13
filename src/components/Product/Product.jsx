@@ -5,6 +5,7 @@ import {
   clickToGather,
   sellOneProduct,
   sellProdByPerc,
+  unlockProduct,
 } from "../../features/product/coreSlice";
 import "./Product.scss";
 import { numberFormatter } from "../NumberFormatter/numberFormatter";
@@ -33,100 +34,136 @@ function Product({ prd }) {
 
   return (
     <div style={border} className="product">
-      <div className="left">
-        <div className="top">
-          <span
-            className="span"
-            style={{
-              color: `${product.color}`,
-              fontWeight: "bold",
-              fontSize: "14px",
-            }}
-          >
-            Count : {numberFormatter(product.count)}
-          </span>
-        </div>
+      {product?.isOpen ? (
+        <>
+          <div className="left">
+            <div className="top">
+              <span
+                className="span"
+                style={{
+                  color: `${product.color}`,
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                }}
+              >
+                Count : {numberFormatter(product.count)}
+              </span>
+            </div>
 
-        <div className="bottom">
-          <button
-            className="sell"
-            onClick={() => dispatch(sellProdByPerc([product.id, 4]))}
-          >
-            Sell 25%
-            <span>
-              +
-              {numberFormatter(
-                Math.floor((product.count * product.sellPrice) / 4)
-              )}{" "}
-              <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
-            </span>
-          </button>
-          <button
-            className="sell"
-            onClick={() => dispatch(sellProdByPerc([product.id, 2]))}
-          >
-            Sell 50%
-            <span>
-              +
-              {numberFormatter(
-                Math.floor((product.count * product.sellPrice) / 2)
-              )}{" "}
-              <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
-            </span>
-          </button>
-          <button
-            onClick={() => dispatch(sellProdByPerc([product.id, 1]))}
-            className="sell"
-          >
-            Sell All
-            <span>
-              +{numberFormatter(Math.floor(product.count * product.sellPrice))}{" "}
-              <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
-            </span>
-          </button>
-        </div>
-      </div>
-      <div className="center">
-        <h3 style={{ color: `${product.color}` }}>{product.name}</h3>
-        <i
-          onClick={() => dispatch(clickToGather(product.id))}
-          style={{ color: `${product.color}` }}
-          className={product.icon}
-        ></i>
-      </div>
+            <div className="bottom">
+              <button
+                className="sell"
+                onClick={() => dispatch(sellProdByPerc([product.id, 4]))}
+              >
+                Sell 25%
+                <span>
+                  +
+                  {numberFormatter(
+                    Math.floor((product.count * product.sellPrice) / 4)
+                  )}{" "}
+                  <i
+                    style={{ color: "gold" }}
+                    className="fa-solid fa-coins"
+                  ></i>
+                </span>
+              </button>
+              <button
+                className="sell"
+                onClick={() => dispatch(sellProdByPerc([product.id, 2]))}
+              >
+                Sell 50%
+                <span>
+                  +
+                  {numberFormatter(
+                    Math.floor((product.count * product.sellPrice) / 2)
+                  )}{" "}
+                  <i
+                    style={{ color: "gold" }}
+                    className="fa-solid fa-coins"
+                  ></i>
+                </span>
+              </button>
+              <button
+                onClick={() => dispatch(sellProdByPerc([product.id, 1]))}
+                className="sell"
+              >
+                Sell All
+                <span>
+                  +
+                  {numberFormatter(
+                    Math.floor(product.count * product.sellPrice)
+                  )}{" "}
+                  <i
+                    style={{ color: "gold" }}
+                    className="fa-solid fa-coins"
+                  ></i>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div className="center">
+            <h3 style={{ color: `${product.color}` }}>{product.name}</h3>
+            <i
+              onClick={() => dispatch(clickToGather(product.id))}
+              style={{ color: `${product.color}` }}
+              className={product.icon}
+            ></i>
+          </div>
 
-      <div className="right">
-        <div className="top">
-          <span>Workers : {numberFormatter(product.worker)}</span>
-        </div>
-        <div className="bottom">
+          <div className="right">
+            <div className="top">
+              <span>Workers : {numberFormatter(product.worker)}</span>
+            </div>
+            <div className="bottom">
+              <button
+                style={product.workerPrice > user.totalGold ? disabled : active}
+                onClick={() => handleBuyWorker(1)}
+              >
+                +1 {"=>"} {numberFormatter(product.workerPrice)}{" "}
+                <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
+              </button>
+              <button
+                style={
+                  product.workerPrice * 10 > user.totalGold ? disabled : active
+                }
+                onClick={() => handleBuyWorker(10)}
+              >
+                +10 {"=>"} {numberFormatter(product.workerPrice * 10)}{" "}
+                <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
+              </button>
+              <button
+                style={
+                  product.workerPrice * 100 > user.totalGold ? disabled : active
+                }
+                onClick={() => handleBuyWorker(100)}
+              >
+                +100 {"=>"} {numberFormatter(product.workerPrice * 100)}{" "}
+                <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
+              </button>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="disabled">
+          <h2 style={{ color: product.color }}>
+            <span>
+              <i class="fa-solid fa-lock"></i>
+            </span>{" "}
+            {product.name}
+          </h2>
           <button
-            style={product.workerPrice > user.totalGold ? disabled : active}
-            onClick={() => handleBuyWorker(1)}
-          >
-            +1 {"=>"} {numberFormatter(product.workerPrice)}{" "}
-            <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
-          </button>
-          <button
+            onClick={() => dispatch(unlockProduct(product.id))}
             style={
-              product.workerPrice * 10 > user.totalGold ? disabled : active
+              user.totalGold >= product.openPrice
+                ? { backgroundColor: product.color }
+                : { backgroundColor: "gray", cursor: "not-allowed" }
             }
-            onClick={() => handleBuyWorker(10)}
           >
-            +10 {"=>"} {numberFormatter(product.workerPrice * 10)}{" "}
-            <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
-          </button>
-          <button
-            style={
-              product.workerPrice * 100 > user.totalGold ? disabled : active
-            }
-            onClick={() => handleBuyWorker(100)}
-          >
-            +100 {"=>"} {numberFormatter(product.workerPrice * 100)}{" "}
+            Unlock for {numberFormatter(product.openPrice)}{" "}
             <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
           </button>
         </div>
-      </div>
+      )}
     </div>
   );
 }

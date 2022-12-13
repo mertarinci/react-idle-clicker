@@ -8,10 +8,13 @@ import { incrementByAmount } from "../../features/product/coreSlice";
 import Product from "../../components/Product/Product";
 import Footer from "../../components/Footer/Footer";
 import RightMenu from "../../components/RightMenu/RightMenu";
+import WelcomeScreen from "../../components/WelcomeScreen/WelcomeScreen";
+import PotionScreen from "../../components/PotionScreen/PotionScreen";
 
 function Home() {
   const dispatch = useDispatch();
   const prodState = useSelector((state) => state.core.product);
+  const userState = useSelector((state) => state.core.user);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,8 +32,12 @@ function Home() {
     <div className="home">
       <Header />
       <Market className="market" />
-
-      <div className="game">
+      <PotionScreen />
+      {userState?.isNewPlayer ? <WelcomeScreen /> : <></>}
+      <div
+        style={{ opacity: userState?.isNewPlayer ? 0.2 : 1 }}
+        className="game"
+      >
         <div className="products">
           <Product prd={0} />
           <Product prd={1} />

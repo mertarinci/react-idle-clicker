@@ -69,15 +69,12 @@
       button {
         width: 70%;
         height: 25%;
-        background-color: #a460ed;
-        color: white;
         border: 1px solid transparent;
         border-radius: 20px;
+        cursor: pointer;
 
         &:hover {
-          background-color: #eeeeee;
-          color: #a460ed;
-          border: 1px solid #a460ed;
+          opacity: 0.8;
         }
 
         &:active {

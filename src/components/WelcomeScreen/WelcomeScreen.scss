@@ -1,0 +1,50 @@
+.welcomeScreen {
+  width: 1000px;
+  height: 500px;
+  position: absolute;
+  background: #393e46;
+  top: 12%;
+  left: 15%;
+  text-align: center;
+  opacity: 1;
+  visibility: visible;
+  overflow: scroll;
+  z-index: 999;
+  border: 5px solid #a460ed;
+  border-radius: 20px;
+  padding: 20px;
+
+  .welcomeTitle {
+    color: #a460ed;
+    font-size: 32px;
+    padding: 10px;
+  }
+
+  .welcomeText {
+    font-size: 18px;
+    padding: 20px;
+    letter-spacing: 1px;
+    line-height: 30px;
+
+    hr {
+      margin: 20px 0;
+    }
+  }
+
+  .welcomeButton {
+    font-size: 24px;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #a460ed;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      opacity: 0.4;
+    }
+  }
+}

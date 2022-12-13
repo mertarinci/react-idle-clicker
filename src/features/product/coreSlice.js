@@ -7,13 +7,14 @@ const initialState = {
             id: 0,
             name: "Lemon",
             count: 0,
-            workerEfficiency: 10,
+            workerEfficiency: 1,
             clickEfficiency: 1,
             worker: 0,
-            workerPrice: 1,
+            workerPrice: 10,
             color: "yellow",
             icon: "fa-solid fa-lemon",
-            sellPrice: 1
+            sellPrice: 1,
+            isOpen: true
 
         },
         {
@@ -27,7 +28,9 @@ const initialState = {
             color: "white",
             icon: "fa-solid fa-bone",
             price: 100,
-            sellPrice: 100
+            sellPrice: 100,
+            isOpen: false,
+            openPrice: 1000
         },
         {
             id: 2,
@@ -37,9 +40,11 @@ const initialState = {
             clickEfficiency: 1,
             worker: 0,
             workerPrice: 10000,
-            color: '#f02828',
+            color: '#f33939',
             icon: "fa-solid fa-droplet",
-            sellPrice: 500
+            sellPrice: 500,
+            isOpen: false,
+            openPrice: 10000
         },
 
         {
@@ -52,7 +57,9 @@ const initialState = {
             workerPrice: 1000000,
             color: "#82f884",
             icon: "fa-solid fa-shirt",
-            sellPrice: 1000
+            sellPrice: 1000,
+            isOpen: false,
+            openPrice: 100000
         },
 
         {
@@ -65,7 +72,9 @@ const initialState = {
             workerPrice: 1000000,
             color: "orange",
             icon: "fa-solid fa-moon",
-            sellPrice: 10000
+            sellPrice: 10000,
+            isOpen: false,
+            openPrice: 1000000
 
         },
         {
@@ -78,7 +87,9 @@ const initialState = {
             workerPrice: 1000000,
             color: "#a460ed",
             icon: "fa-solid fa-apple-whole",
-            sellPrice: 10000
+            sellPrice: 10000,
+            isOpen: false,
+            openPrice: 10000000
 
         },
 
@@ -92,7 +103,9 @@ const initialState = {
             workerPrice: 10000000,
             color: "#50c878",
             icon: "fa-solid fa-gem",
-            sellPrice: 10000
+            sellPrice: 10000,
+            isOpen: false,
+            openPrice: 100000000
         },
         {
             id: 7,
@@ -104,14 +117,17 @@ const initialState = {
             workerPrice: 100000000,
             color: "#4EE2EC",
             icon: "fa-solid fa-diamond",
-            sellPrice: 100000
+            sellPrice: 100000,
+            isOpen: false,
+            openPrice: 1000000000
         }
     ],
     user: {
+        isNewPlayer: true,
         level: 1,
         currentExp: 0,
         class: 1,
-        totalGold: 0
+        totalGold: 5000
     },
     upgrades: [
         {
@@ -121,7 +137,10 @@ const initialState = {
             desc: "Lemon click efficieny increase 10x.",
             price: 100,
             isPurchased: false,
-            parentIcon: "fa-solid fa-lemon"
+            parentIcon: "fa-solid fa-lemon",
+            typeUpg: "click",
+            multiplier: 10,
+            target: 0
         },
         {
             id: 1,
@@ -130,7 +149,10 @@ const initialState = {
             desc: "Giant Bone click efficieny increase 10x.",
             price: 1000,
             isPurchased: false,
-            parentIcon: "fa-solid fa-bone"
+            parentIcon: "fa-solid fa-bone",
+            typeUpg: "click",
+            multiplier: 10,
+            target: 1
         },
         {
             id: 2,
@@ -139,7 +161,10 @@ const initialState = {
             desc: "Troll Blood click efficieny increase 10x.",
             price: 10000,
             isPurchased: false,
-            parentIcon: "fa-solid fa-droplet"
+            parentIcon: "fa-solid fa-droplet",
+            typeUpg: "click",
+            multiplier: 10,
+            target: 2
         },
 
         {
@@ -149,7 +174,10 @@ const initialState = {
             desc: "Your lemon workers efficieny increase 10x.",
             price: 5000,
             isPurchased: false,
-            parentIcon: "fa-solid fa-lemon"
+            parentIcon: "fa-solid fa-lemon",
+            typeUpg: "worker",
+            multiplier: 10,
+            target: 0
         },
         {
             id: 4,
@@ -158,7 +186,10 @@ const initialState = {
             desc: "Your giant bone workers efficieny increase 10x.",
             price: 50000,
             isPurchased: false,
-            parentIcon: "fa-solid fa-bone"
+            parentIcon: "fa-solid fa-bone",
+            typeUpg: "worker",
+            multiplier: 10,
+            target: 1
         },
         {
             id: 5,
@@ -167,9 +198,45 @@ const initialState = {
             desc: "Your troll blood workers efficieny increase 10x.",
             price: 500000,
             isPurchased: false,
-            parentIcon: "fa-solid fa-droplet"
+            parentIcon: "fa-solid fa-droplet",
+            typeUpg: "worker",
+            multiplier: 10,
+            target: 2
         },
 
+    ],
+    potions: [
+        {
+            id: 0,
+            count: 0,
+            color: "yellow",
+            name: "Lemon Fizz",
+            desc: "Weak lemon potion. You can mix this potion with other potions to make stronger ones. This potion is the basic potion that every alchemy student learn in their first year.",
+            ingsToMake: [0],
+            materialNeed: [10],
+            sellPrice: 100,
+        },
+        {
+            id: 1,
+            count: 0,
+            color: "#ffffc7",
+            name: "Bone Lemonate",
+            ingsToMake: [0, 1],
+            materialNeed: [100, 15],
+            desc: "Bitter combination of lemon and bone. Most of the alchemists can make this potion. This potion can make your bones stronger in order to fight with the evil.",
+            sellPrice: 10
+        },
+        {
+            id: 2,
+            count: 0,
+            color: "orange",
+            name: "Bloody Hell",
+            ingsToMake: [0, 2],
+            materialNeed: [100, 0, 10],
+            desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor for you, you can mix it with lemon.",
+            sellPrice: 100
+
+        }
     ]
 
 }
@@ -200,7 +267,7 @@ export const productSlice = createSlice({
                 var times = action.payload[1]
 
                 for (var i = 0; i < times; i++) {
-                    state.product[action.payload[0]].workerPrice += Math.floor(state.product[action.payload[0]].workerPrice * 0.15)
+                    state.product[action.payload[0]].workerPrice += Math.ceil(state.product[action.payload[0]].workerPrice * 0.08)
                 }
 
 
@@ -223,7 +290,42 @@ export const productSlice = createSlice({
                 state.product[action.payload[0]].count -= Math.floor(state.product[action.payload[0]].count / action.payload[1])
 
             }
+        },
+
+        upgradeGather: (state, action) => {
+
+            if (state.user.totalGold >= state.upgrades[action.payload[0]].price) {
+
+                if (state.upgrades[action.payload[0]].typeUpg === "click") {
+
+                    state.product[action.payload[1]].clickEfficiency = 100
+                    state.user.totalGold -= state.upgrades[action.payload[0]].price
+                    state.upgrades[action.payload[0]].isPurchased = true
+
+                }
+
+                if (state.upgrades[action.payload[0]].typeUpg === "worker") {
+
+                    state.product[action.payload[1]].workerEfficiency = 100
+                    state.user.totalGold -= state.upgrades[action.payload[0]].price
+                    state.upgrades[action.payload[0]].isPurchased = true
+
+                }
+
+            }
+
+        },
+
+        unlockProduct: (state, action) => {
+
+            if (state.user.totalGold >= state.product[action.payload].openPrice) {
+
+                state.product[action.payload].isOpen = true
+                state.user.totalGold -= state.product[action.payload].openPrice
+
+            }
         }
+
 
     },
 })
@@ -234,6 +336,6 @@ export const productSlice = createSlice({
 
 
 // Action creators are generated for each case reducer function
-export const { clickToGather, incrementByAmount, buyWorker, sellOneProduct, sellProdByPerc } = productSlice.actions
+export const { clickToGather, incrementByAmount, buyWorker, sellOneProduct, sellProdByPerc, upgradeGather, unlockProduct } = productSlice.actions
 
 export default productSlice.reducer

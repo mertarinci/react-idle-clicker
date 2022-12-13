@@ -11,6 +11,14 @@ function RightMenu() {
     game.opacity = 0.2;
   };
 
+  const potionWindow = () => {
+    const potionScreen = document.querySelector(".potionScreen").style;
+    potionScreen.opacity = 1;
+    potionScreen.visibility = "visible";
+    const game = document.querySelector(".game").style;
+    game.opacity = 0.2;
+  };
+
   return (
     <div className="rightMenu">
       <div className="container">
@@ -22,7 +30,7 @@ function RightMenu() {
             Upgrades
           </button>
           <button>Market</button>
-          <button>Test</button>
+          <button onClick={() => potionWindow()}>Potion Making</button>
         </div>
         <div className="bottom"></div>
 
