@@ -21,6 +21,8 @@ function RightMenu() {
           <button className="btn" onClick={() => marketWindow()}>
             Upgrades
           </button>
+          <button>Market</button>
+          <button>Test</button>
         </div>
         <div className="bottom"></div>
 

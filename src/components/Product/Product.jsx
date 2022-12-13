@@ -49,16 +49,6 @@ function Product({ prd }) {
 
         <div className="bottom">
           <button
-            onClick={() => dispatch(sellOneProduct(product.id))}
-            className="sell"
-          >
-            Sell 1{"  "}
-            <span>
-              +{numberFormatter(product.count === 0 ? 0 : product.sellPrice)}{" "}
-              <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
-            </span>
-          </button>
-          <button
             className="sell"
             onClick={() => dispatch(sellProdByPerc([product.id, 4]))}
           >
@@ -67,6 +57,19 @@ function Product({ prd }) {
               +
               {numberFormatter(
                 Math.floor((product.count * product.sellPrice) / 4)
+              )}{" "}
+              <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
+            </span>
+          </button>
+          <button
+            className="sell"
+            onClick={() => dispatch(sellProdByPerc([product.id, 2]))}
+          >
+            Sell 50%
+            <span>
+              +
+              {numberFormatter(
+                Math.floor((product.count * product.sellPrice) / 2)
               )}{" "}
               <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
             </span>
@@ -97,7 +100,10 @@ function Product({ prd }) {
           <span>Workers : {numberFormatter(product.worker)}</span>
         </div>
         <div className="bottom">
-          <button onClick={() => handleBuyWorker(1)}>
+          <button
+            style={product.workerPrice > user.totalGold ? disabled : active}
+            onClick={() => handleBuyWorker(1)}
+          >
             +1 {"=>"} {numberFormatter(product.workerPrice)}{" "}
             <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
           </button>

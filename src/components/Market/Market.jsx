@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { numberFormatter } from "../NumberFormatter/numberFormatter";
 import "./Market.scss";
 
 function Market() {
@@ -9,19 +11,31 @@ function Market() {
     const game = document.querySelector(".game").style;
     game.opacity = 1;
   };
+
+  const upgrades = useSelector((state) => state.core.upgrades);
+
   return (
     <div className="market">
       <div className="closeBtn" onClick={() => handleClick()}>
-        X
+        <i class="fa-solid fa-circle-xmark"></i>
       </div>
       <h1 className="marketTitle">UPGRADES</h1>
       <div className="menu">
-        <div className="item">
-          <h4>Product #1</h4>
-          <p>Increase the production speed of workers.</p>
-          <span>Price : 30$</span>
-          <button>BUY</button>
-        </div>
+        {upgrades?.map((item) => (
+          <div key={item.id} className="item">
+            <h4>
+              <i style={{ color: item.color }} className={item.parentIcon}></i>{" "}
+              {item.name}
+            </h4>
+
+            <p>{item.desc}</p>
+            <span>
+              Price : {numberFormatter(item.price)}{" "}
+              <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
+            </span>
+            <button>BUY</button>
+          </div>
+        ))}
 
         <div className="item">
           <h4>Product #2</h4>

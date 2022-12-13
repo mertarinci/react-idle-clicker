@@ -10,7 +10,7 @@ const initialState = {
             workerEfficiency: 10,
             clickEfficiency: 1,
             worker: 0,
-            workerPrice: 10,
+            workerPrice: 1,
             color: "yellow",
             icon: "fa-solid fa-lemon",
             sellPrice: 1
@@ -112,7 +112,65 @@ const initialState = {
         currentExp: 0,
         class: 1,
         totalGold: 0
-    }
+    },
+    upgrades: [
+        {
+            id: 0,
+            name: "Lemonate Time!",
+            color: "yellow",
+            desc: "Lemon click efficieny increase 10x.",
+            price: 100,
+            isPurchased: false,
+            parentIcon: "fa-solid fa-lemon"
+        },
+        {
+            id: 1,
+            name: "Collect Bones!",
+            color: "white",
+            desc: "Giant Bone click efficieny increase 10x.",
+            price: 1000,
+            isPurchased: false,
+            parentIcon: "fa-solid fa-bone"
+        },
+        {
+            id: 2,
+            name: "Eww! Is that blood?",
+            color: "red",
+            desc: "Troll Blood click efficieny increase 10x.",
+            price: 10000,
+            isPurchased: false,
+            parentIcon: "fa-solid fa-droplet"
+        },
+
+        {
+            id: 3,
+            name: "Lemon Revolution!",
+            color: "yellow",
+            desc: "Your lemon workers efficieny increase 10x.",
+            price: 5000,
+            isPurchased: false,
+            parentIcon: "fa-solid fa-lemon"
+        },
+        {
+            id: 4,
+            color: "white",
+            name: "We Hate Giants!",
+            desc: "Your giant bone workers efficieny increase 10x.",
+            price: 50000,
+            isPurchased: false,
+            parentIcon: "fa-solid fa-bone"
+        },
+        {
+            id: 5,
+            color: "red",
+            name: "Blood Party!",
+            desc: "Your troll blood workers efficieny increase 10x.",
+            price: 500000,
+            isPurchased: false,
+            parentIcon: "fa-solid fa-droplet"
+        },
+
+    ]
 
 }
 

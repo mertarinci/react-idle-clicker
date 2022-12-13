@@ -26,8 +26,14 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 20px;
+    border: 10px solid #a460ed;
 
     .center {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
       button {
         width: 200px;
         height: 50px;
