@@ -23,7 +23,7 @@ function Header() {
       <div className="right">
         <p style={makeBold} className="rightMenu-item">
           Gold: {numberFormatter(user.totalGold)}{" "}
-          <i style={{ color: "gold" }} class="fa-solid fa-coins"></i>
+          <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
         </p>
         <hr />
         <p style={makeBold} className="rightMenu-item">

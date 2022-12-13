@@ -1,0 +1,68 @@
+:root {
+  --initial: #a460ed;
+  --light-1: #fefefe;
+  --light-2: #ffffff;
+  --light-3: #a460ed;
+}
+
+.rightMenu {
+  flex: 2;
+  height: 95%;
+  margin: auto 20px;
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+  .container {
+    position: relative;
+    z-index: 0;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 6px;
+      top: 6px;
+      width: calc(100% - 12px);
+      height: calc(100% - 12px);
+      background: #393e46;
+      border-radius: 10px;
+      animation: opacityChange 3s infinite alternate;
+    }
+
+    &:hover {
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -2;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        background-color: var(--initial);
+        background-repeat: no-repeat;
+        background-size: 50% 50%, 50% 50%;
+        background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+        background-image: linear-gradient(var(--initial), var(--light-1)),
+          linear-gradient(var(--initial), var(--light-1)),
+          linear-gradient(var(--light-1), var(--light-2)),
+          linear-gradient(var(--light-3), var(--light-1));
+        animation: rotate 4s linear infinite;
+      }
+
+      @keyframes opacityChange {
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

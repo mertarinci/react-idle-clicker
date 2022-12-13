@@ -7,6 +7,7 @@ import { incrementByAmount } from "../../features/product/coreSlice";
 
 import Product from "../../components/Product/Product";
 import Footer from "../../components/Footer/Footer";
+import RightMenu from "../../components/RightMenu/RightMenu";
 
 function Home() {
   const marketWindow = () => {
@@ -27,7 +28,8 @@ function Home() {
     return () => {
       clearInterval(interval);
     };
-  }, [dispatch, prodState]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
 
   return (
     <div className="home">
@@ -46,7 +48,7 @@ function Home() {
           <Product prd={1} />
         </div>
 
-        <div className="rightMenu"></div>
+        <RightMenu />
       </div>
 
       {/* <button className="btn" onClick={() => marketWindow()}>
