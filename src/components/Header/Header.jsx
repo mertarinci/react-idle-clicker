@@ -11,6 +11,8 @@ function Header() {
 
   const user = useSelector((state) => state.core.user);
 
+  console.log(user.username);
+
   return (
     <div className="header">
       <div className="left">
@@ -35,7 +37,7 @@ function Header() {
         </p>
         <hr />
         <p style={makeBold} className="rightMenu-item">
-          Game Info
+          {user.username}
         </p>
       </div>
     </div>

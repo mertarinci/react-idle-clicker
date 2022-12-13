@@ -124,6 +124,7 @@ const initialState = {
     ],
     user: {
         isNewPlayer: true,
+        username: "Unkown",
         level: 1,
         currentExp: 0,
         class: 1,
@@ -324,8 +325,13 @@ export const productSlice = createSlice({
                 state.user.totalGold -= state.product[action.payload].openPrice
 
             }
-        }
+        },
 
+        changeUsername: (state, action) => {
+
+            state.user.username = action.payload
+
+        }
 
     },
 })
@@ -336,6 +342,6 @@ export const productSlice = createSlice({
 
 
 // Action creators are generated for each case reducer function
-export const { clickToGather, incrementByAmount, buyWorker, sellOneProduct, sellProdByPerc, upgradeGather, unlockProduct } = productSlice.actions
+export const { clickToGather, incrementByAmount, buyWorker, sellOneProduct, sellProdByPerc, upgradeGather, unlockProduct, changeUsername } = productSlice.actions
 
 export default productSlice.reducer

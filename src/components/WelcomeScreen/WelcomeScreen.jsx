@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import "./WelcomeScreen.scss";
+import { changeUsername } from "../../features/product/coreSlice";
 
 function WelcomeScreen() {
   const handleClick = () => {
@@ -8,7 +10,17 @@ function WelcomeScreen() {
     market.style.visibility = "hidden";
     const game = document.querySelector(".game").style;
     game.opacity = 1;
+    dispatch(changeUsername(username));
   };
+
+  const dispatch = useDispatch();
+  const [username, setUsername] = useState("");
+
+  const handleChange = (e) => {
+    setUsername(e.target.value);
+  };
+
+  console.log(username);
 
   return (
     <div className="welcomeScreen">
@@ -37,9 +49,23 @@ function WelcomeScreen() {
         for automated gathering.
       </p>
 
-      <button onClick={() => handleClick()} className="welcomeButton">
-        Start Your Journey
-      </button>
+      <div className="input">
+        <div>
+          <input
+            maxLength="10"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Your name..."
+            value={username}
+            onChange={handleChange}
+          />
+        </div>
+
+        <button onClick={() => handleClick()} className="welcomeButton">
+          Start Your Journey
+        </button>
+      </div>
     </div>
   );
 }

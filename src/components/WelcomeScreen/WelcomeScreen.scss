@@ -31,20 +31,43 @@
     }
   }
 
-  .welcomeButton {
-    font-size: 24px;
-    border: none;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: #a460ed;
-    color: white;
-    cursor: pointer;
+  .input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 
-    &:hover {
-      opacity: 0.8;
+    input {
+      border-radius: 20px;
+      border: 2px solid #a460ed;
+      height: 25px;
+      background-color: #393e46;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      -webkit-user-select: auto;
+      -ms-user-select: auto;
+      user-select: auto;
+      font-size: 14px;
     }
-    &:active {
-      opacity: 0.4;
+
+    .welcomeButton {
+      font-size: 20px;
+      border: none;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: #a460ed;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+      &:active {
+        opacity: 0.4;
+      }
     }
   }
 }
