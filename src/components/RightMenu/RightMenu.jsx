@@ -30,7 +30,7 @@ function RightMenu() {
             Upgrades
           </button>
           <button>Market</button>
-          <button onClick={() => potionWindow()}>Potion Making</button>
+          <button onClick={() => potionWindow()}>Potion Craft</button>
         </div>
         <div className="bottom"></div>
 

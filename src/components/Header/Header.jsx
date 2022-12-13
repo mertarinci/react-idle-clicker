@@ -37,7 +37,7 @@ function Header() {
         </p>
         <hr />
         <p style={makeBold} className="rightMenu-item">
-          {user.username}
+          {user.username.length < 3 ? "Unkown" : user.username}
         </p>
       </div>
     </div>
