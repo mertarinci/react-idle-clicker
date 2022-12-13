@@ -171,36 +171,36 @@ const initialState = {
             id: 3,
             name: "Lemon Revolution!",
             color: "yellow",
-            desc: "Your lemon workers efficieny increase 10x.",
+            desc: "Your lemon workers efficieny increase 50x.",
             price: 5000,
             isPurchased: false,
             parentIcon: "fa-solid fa-lemon",
             typeUpg: "worker",
-            multiplier: 10,
+            multiplier: 50,
             target: 0
         },
         {
             id: 4,
             color: "white",
             name: "We Hate Giants!",
-            desc: "Your giant bone workers efficieny increase 10x.",
+            desc: "Your giant bone workers efficieny increase 50x.",
             price: 50000,
             isPurchased: false,
             parentIcon: "fa-solid fa-bone",
             typeUpg: "worker",
-            multiplier: 10,
+            multiplier: 50,
             target: 1
         },
         {
             id: 5,
             color: "red",
             name: "Blood Party!",
-            desc: "Your troll blood workers efficieny increase 10x.",
+            desc: "Your troll blood workers efficieny increase 50x.",
             price: 500000,
             isPurchased: false,
             parentIcon: "fa-solid fa-droplet",
             typeUpg: "worker",
-            multiplier: 10,
+            multiplier: 50,
             target: 2
         },
 
@@ -298,7 +298,7 @@ export const productSlice = createSlice({
 
                 if (state.upgrades[action.payload[0]].typeUpg === "click") {
 
-                    state.product[action.payload[1]].clickEfficiency = 100
+                    state.product[action.payload[1]].clickEfficiency = action.payload[2]
                     state.user.totalGold -= state.upgrades[action.payload[0]].price
                     state.upgrades[action.payload[0]].isPurchased = true
 
@@ -306,7 +306,7 @@ export const productSlice = createSlice({
 
                 if (state.upgrades[action.payload[0]].typeUpg === "worker") {
 
-                    state.product[action.payload[1]].workerEfficiency = 100
+                    state.product[action.payload[1]].workerEfficiency = action.payload[2]
                     state.user.totalGold -= state.upgrades[action.payload[0]].price
                     state.upgrades[action.payload[0]].isPurchased = true
 

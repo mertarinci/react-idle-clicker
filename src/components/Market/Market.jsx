@@ -52,7 +52,11 @@ function Market() {
                         color: "white",
                       }
                 }
-                onClick={() => dispatch(upgradeGather([item.id, item.target]))}
+                onClick={() =>
+                  dispatch(
+                    upgradeGather([item.id, item.target, item.multiplier])
+                  )
+                }
               >
                 BUY
               </button>
