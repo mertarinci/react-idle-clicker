@@ -11,8 +11,6 @@ function Header() {
 
   const user = useSelector((state) => state.core.user);
 
-  console.log(user.username);
-
   return (
     <div className="header">
       <div className="left">

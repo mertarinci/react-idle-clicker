@@ -13,7 +13,7 @@ const initialState = {
             workerPrice: 10,
             color: "yellow",
             icon: "fa-solid fa-lemon",
-            sellPrice: 1,
+            sellPrice: 100,
             isOpen: true
 
         },
@@ -128,7 +128,7 @@ const initialState = {
         level: 1,
         currentExp: 0,
         class: 1,
-        totalGold: 5000
+        totalGold: 0
     },
     upgrades: [
         {
@@ -234,10 +234,106 @@ const initialState = {
             name: "Bloody Hell",
             ingsToMake: [0, 2],
             materialNeed: [100, 0, 10],
+            desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor, you can mix it with lemon!",
+            sellPrice: 100
+
+        },
+        {
+            id: 3,
+            count: 0,
+            color: "#FF748C",
+            name: "Fleshy Bone",
+            ingsToMake: [1, 2],
+            materialNeed: [0, 5000, 2500],
+            desc: "These two ingredients shouldn't be combined but ehh, seems like it's working. Professor Dumblecunt used to love this potion. We don't know why but it gives a strange stamina to who drinks this potion.",
+            sellPrice: 500000
+
+        },
+        {
+            id: 4,
+            count: 0,
+            color: "orange",
+            name: "Bloody Hell",
+            ingsToMake: [0, 2],
+            materialNeed: [100, 0, 10],
             desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor for you, you can mix it with lemon.",
             sellPrice: 100
 
-        }
+        }, {
+            id: 5,
+            count: 0,
+            color: "orange",
+            name: "Bloody Hell",
+            ingsToMake: [0, 2],
+            materialNeed: [100, 0, 10],
+            desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor for you, you can mix it with lemon.",
+            sellPrice: 100
+
+        }, {
+            id: 6,
+            count: 0,
+            color: "orange",
+            name: "Bloody Hell",
+            ingsToMake: [0, 2],
+            materialNeed: [100, 0, 10],
+            desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor for you, you can mix it with lemon.",
+            sellPrice: 100
+
+        },
+        {
+            id: 7,
+            count: 0,
+            color: "orange",
+            name: "Bloody Hell",
+            ingsToMake: [0, 2],
+            materialNeed: [100, 0, 10],
+            desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor for you, you can mix it with lemon.",
+            sellPrice: 100
+
+        },
+        {
+            id: 8,
+            count: 0,
+            color: "orange",
+            name: "Bloody Hell",
+            ingsToMake: [0, 2],
+            materialNeed: [100, 0, 10],
+            desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor for you, you can mix it with lemon.",
+            sellPrice: 100
+
+        }, {
+            id: 9,
+            count: 0,
+            color: "orange",
+            name: "Bloody Hell",
+            ingsToMake: [0, 2],
+            materialNeed: [100, 0, 10],
+            desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor for you, you can mix it with lemon.",
+            sellPrice: 100
+
+        },
+        {
+            id: 10,
+            count: 0,
+            color: "orange",
+            name: "Bloody Hell",
+            ingsToMake: [0, 2],
+            materialNeed: [100, 0, 10],
+            desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor for you, you can mix it with lemon.",
+            sellPrice: 100
+
+        },
+        {
+            id: 11,
+            count: 0,
+            color: "orange",
+            name: "Bloody Hell",
+            ingsToMake: [0, 2],
+            materialNeed: [100, 0, 10],
+            desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor for you, you can mix it with lemon.",
+            sellPrice: 100
+
+        },
     ]
 
 }
@@ -331,7 +427,43 @@ export const productSlice = createSlice({
 
             state.user.username = action.payload
 
+        },
+
+
+        makePotion: (state, action) => {
+
+            const ingredients = state.potions[action.payload[0]].ingsToMake
+
+            let isPotMade = 0
+
+            for (let i = 0; i < ingredients.length; i++) {
+
+                let selectedProduct = state.product[ingredients[i]]
+
+
+                // Recieves ID of potion and returns material need with ingredient order 
+                // Example : ingredient : [0,2] -> materialNeed : [10,0,20] => Returns : 10 and 20
+
+                let materialNeed = state.potions[action.payload[0]].materialNeed[ingredients[i]]
+
+                if (selectedProduct.count >= materialNeed * action.payload[1]) {
+
+                    selectedProduct.count -= materialNeed * action.payload[1]
+                    isPotMade += 1
+
+                }
+            }
+
+            if (isPotMade === ingredients.length) {
+
+                state.potions[action.payload[0]].count += action.payload[1]
+
+            }
+
+
         }
+
+
 
     },
 })
@@ -342,6 +474,6 @@ export const productSlice = createSlice({
 
 
 // Action creators are generated for each case reducer function
-export const { clickToGather, incrementByAmount, buyWorker, sellOneProduct, sellProdByPerc, upgradeGather, unlockProduct, changeUsername } = productSlice.actions
+export const { clickToGather, incrementByAmount, buyWorker, sellOneProduct, sellProdByPerc, upgradeGather, unlockProduct, changeUsername, makePotion } = productSlice.actions
 
 export default productSlice.reducer

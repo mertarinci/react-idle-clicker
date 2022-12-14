@@ -20,8 +20,6 @@ function WelcomeScreen() {
     setUsername(e.target.value);
   };
 
-  console.log(username);
-
   return (
     <div className="welcomeScreen">
       <h1 className="welcomeTitle">WELCOME ALCHEMIST!</h1>
@@ -46,7 +44,8 @@ function WelcomeScreen() {
         <span style={{ color: "yellow", fontWeight: "bold" }}>CLICK</span> to
         ingrediants or{" "}
         <span style={{ color: "green", fontWeight: "bold" }}>BUY WORKERS</span>{" "}
-        for automated gathering.
+        for automated gathering. You can make potions on{" "}
+        <b style={{ color: "#a460ed" }}>POTION CRAFT</b> section.
       </p>
 
       <div className="input">
