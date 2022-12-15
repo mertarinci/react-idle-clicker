@@ -131,7 +131,6 @@ const initialState = {
         class: 1,
         totalGold: 0,
         notifications: [
-
         ]
 
     },
@@ -514,7 +513,7 @@ export const productSlice = createSlice({
                 }
 
 
-                state.user.notifications.splice(0, 0, `You bought ${times} ${state.product[action.payload[0]].name} workers.`)
+                state.user.notifications.splice(0, 0, { not: `You bought ${times} ${state.product[action.payload[0]].name} worker.`, color: `${state.product[action.payload[0]].color}` })
 
             }
 
@@ -537,7 +536,7 @@ export const productSlice = createSlice({
                 state.product[action.payload[0]].count -= Math.floor(state.product[action.payload[0]].count / action.payload[1])
 
 
-                state.user.notifications.splice(0, 0, `You sold ${state.product[action.payload[0]].name}.`)
+                state.user.notifications.splice(0, 0, { not: `You sold ${state.product[action.payload[0]].name}.`, color: `${state.product[action.payload[0]].color}` })
             }
         },
 
@@ -551,7 +550,7 @@ export const productSlice = createSlice({
                     state.user.totalGold -= state.upgrades[action.payload[0]].price
                     state.upgrades[action.payload[0]].isPurchased = true
 
-                    state.user.notifications.splice(0, 0, `You upgraded ${state.product[action.payload[0]].name} click!`)
+                    state.user.notifications.splice(0, 0, { not: `You upgraded ${state.product[action.payload[0]].name} click!`, color: `${state.product[action.payload[0]].name}` })
 
                 }
 
@@ -561,7 +560,7 @@ export const productSlice = createSlice({
                     state.user.totalGold -= state.upgrades[action.payload[0]].price
                     state.upgrades[action.payload[0]].isPurchased = true
 
-                    state.user.notifications.splice(0, 0, `You upgraded ${state.product[action.payload[0]].name} workers!`)
+                    state.user.notifications.splice(0, 0, { not: `You upgraded ${state.product[action.payload[0]].name} workers!`, color: "orange" })
 
                 }
 
@@ -643,7 +642,7 @@ export const productSlice = createSlice({
 
         }, sendNotification: (state, action) => {
 
-            state.user.notifications.splice(0, 0, `${action.payload}`)
+            state.user.notifications.splice(0, 0, { not: `${action.payload.not}`, color: `${action.payload.color}` })
 
         }
 

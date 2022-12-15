@@ -17,6 +17,12 @@ function Market() {
   const user = useSelector((state) => state.core.user);
   const dispatch = useDispatch();
 
+  // document.onkeydown = (e) => {
+  //   if (e.key === "Escape") {
+  //     handleClick();
+  //   }
+  // };
+
   return (
     <div className="market">
       <div className="closeBtn" onClick={() => handleClick()}>

@@ -27,7 +27,12 @@ function Home() {
     }, 1000);
 
     const notificationInt = setInterval(() => {
-      dispatch(sendNotification("Don't forget to check upgrades!"));
+      dispatch(
+        sendNotification({
+          not: "Don't forget to check upgrades!",
+          color: "#a460ed",
+        })
+      );
     }, 60000);
     return () => {
       clearInterval(interval);

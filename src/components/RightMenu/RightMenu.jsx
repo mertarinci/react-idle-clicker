@@ -50,7 +50,9 @@ function RightMenu() {
 
             <div className="items">
               {user.notifications.map((item) => (
-                <p className="item">{item}</p>
+                <p style={{ color: item.color }} className="item">
+                  {item.not}
+                </p>
               ))}
             </div>
           </div>

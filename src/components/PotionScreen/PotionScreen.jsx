@@ -5,9 +5,12 @@ import { numberFormatter } from "../NumberFormatter/numberFormatter";
 import "./PotionScreen.scss";
 
 function PotionScreen() {
-  const handleClick = () => {
+  const potionScreenClose = () => {
     const potionScreen = document.querySelector(".potionScreen");
     potionScreen.style.opacity = 0;
+    const market = document.querySelector(".market");
+    market.style.opacity = 0;
+    market.style.visibility = "hidden";
     potionScreen.style.visibility = "hidden";
     const game = document.querySelector(".game").style;
     game.opacity = 1;
@@ -20,9 +23,15 @@ function PotionScreen() {
 
   const [selectedPot, setSelectedPot] = useState(0);
 
+  document.onkeydown = (e) => {
+    if (e.key === "Escape") {
+      potionScreenClose();
+    }
+  };
+
   return (
     <div className="potionScreen">
-      <div className="closeBtn" onClick={() => handleClick()}>
+      <div className="closeBtn" onClick={() => potionScreenClose()}>
         <i class="fa-solid fa-circle-xmark"></i>
       </div>
       <div className="container">
