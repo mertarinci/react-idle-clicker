@@ -17,7 +17,7 @@ function Header() {
         <h1>Witch Cauldron</h1>
       </div>
       <div className="center">
-        <ProgressBar progress={user.currentExp} bgcolor={"#a460ed"} />
+        <ProgressBar progress={user.expProgress} bgcolor={"#a460ed"} />
         <p>Level : {user.level}</p>
       </div>
       <div className="right">

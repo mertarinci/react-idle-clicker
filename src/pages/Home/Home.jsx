@@ -3,7 +3,10 @@ import "./Home.scss";
 import Market from "../../components/Market/Market";
 import Header from "../../components/Header/Header";
 import { useDispatch, useSelector } from "react-redux";
-import { incrementByAmount } from "../../features/product/coreSlice";
+import {
+  incrementByAmount,
+  sendNotification,
+} from "../../features/product/coreSlice";
 
 import Product from "../../components/Product/Product";
 import Footer from "../../components/Footer/Footer";
@@ -22,11 +25,16 @@ function Home() {
         dispatch(incrementByAmount(item.id));
       });
     }, 1000);
+
+    const notificationInt = setInterval(() => {
+      dispatch(sendNotification("Don't forget to check upgrades!"));
+    }, 60000);
     return () => {
       clearInterval(interval);
+      clearInterval(notificationInt);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, userState]);
 
   return (
     <div className="home">

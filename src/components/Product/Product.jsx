@@ -133,11 +133,11 @@ function Product({ prd }) {
               </button>
               <button
                 style={
-                  product.workerPrice * 100 > user.totalGold ? disabled : active
+                  product.workerPrice * 25 > user.totalGold ? disabled : active
                 }
-                onClick={() => handleBuyWorker(100)}
+                onClick={() => handleBuyWorker(25)}
               >
-                +100 {"=>"} {numberFormatter(product.workerPrice * 100)}{" "}
+                +25 {"=>"} {numberFormatter(product.workerPrice * 25)}{" "}
                 <i style={{ color: "gold" }} className="fa-solid fa-coins"></i>
               </button>
             </div>

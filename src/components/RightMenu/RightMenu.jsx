@@ -22,6 +22,8 @@ function RightMenu() {
   };
 
   const potions = useSelector((state) => state.core.potions);
+
+  const user = useSelector((state) => state.core.user);
   return (
     <div className="rightMenu">
       <div className="container">
@@ -42,7 +44,17 @@ function RightMenu() {
             </div>
           </div>
         </div>
-        <div className="center"></div>
+        <div className="center">
+          <div className="notifications">
+            <h3>Notifications</h3>
+
+            <div className="items">
+              {user.notifications.map((item) => (
+                <p className="item">{item}</p>
+              ))}
+            </div>
+          </div>
+        </div>
         <div className="bottom">
           <button className="btn" onClick={() => marketWindow()}>
             <i class="fa-solid fa-angles-up"></i>

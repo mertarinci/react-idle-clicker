@@ -19,37 +19,6 @@ function PotionScreen() {
   const dispatch = useDispatch();
 
   const [selectedPot, setSelectedPot] = useState(0);
-  const [isDisabled, setDisabled] = useState([false, false, false]);
-
-  useEffect(() => {
-    const isPotDisabled = () => {
-      potions[selectedPot].ingsToMake.forEach((item) => {
-        if (product[item].count >= potions[selectedPot].materialNeed[item]) {
-          setDisabled((prev) => (prev = [false, true, true]));
-          if (
-            product[item].count >=
-            potions[selectedPot].materialNeed[item] * 10
-          ) {
-            setDisabled((prev) => (prev = [false, false, true]));
-            if (
-              product[item].count >=
-              potions[selectedPot].materialNeed[item] * 100
-            ) {
-              setDisabled((prev) => (prev = [false, false, false]));
-            }
-          }
-        } else {
-          setDisabled([true, true, true]);
-        }
-      });
-    };
-
-    isPotDisabled();
-
-    return () => {
-      isPotDisabled();
-    };
-  }, [potions, product, selectedPot]);
 
   return (
     <div className="potionScreen">
@@ -84,9 +53,9 @@ function PotionScreen() {
             <p className="desc">{potions[selectedPot].desc}</p>
             <p className="icons">
               Materials needed:{" "}
-              {potions[selectedPot].ingsToMake.map((item) => (
+              {potions[selectedPot].ingsToMake.map((item, index) => (
                 <div>
-                  {numberFormatter(potions[selectedPot].materialNeed[item])}{" "}
+                  {numberFormatter(potions[selectedPot].materialNeed[index])}{" "}
                   <i
                     style={{ color: product[item].color, fontSize: "20px" }}
                     class={product[item].icon}
@@ -96,11 +65,6 @@ function PotionScreen() {
             </p>
             <div className="buttons">
               <button
-                style={{
-                  backgroundColor: isDisabled[0] ? "gray" : "#a460ed",
-                  cursor: isDisabled[0] ? "not-allowed" : "pointer",
-                }}
-                disabled={isDisabled[0]}
                 onClick={() =>
                   dispatch(makePotion([potions[selectedPot].id, 1]))
                 }
@@ -109,11 +73,6 @@ function PotionScreen() {
                 Make 1 Potion
               </button>
               <button
-                style={{
-                  backgroundColor: isDisabled[1] ? "gray" : "#a460ed",
-                  cursor: isDisabled[1] ? "not-allowed" : "pointer",
-                }}
-                disabled={isDisabled[1]}
                 onClick={() =>
                   dispatch(makePotion([potions[selectedPot].id, 10]))
                 }
@@ -122,11 +81,6 @@ function PotionScreen() {
                 Make 10 Potion
               </button>
               <button
-                style={{
-                  backgroundColor: isDisabled[2] ? "gray" : "#a460ed",
-                  cursor: isDisabled[2] ? "not-allowed" : "pointer",
-                }}
-                disabled={isDisabled[2]}
                 onClick={() =>
                   dispatch(makePotion([potions[selectedPot].id, 100]))
                 }
