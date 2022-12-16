@@ -36,7 +36,7 @@ function RightMenu() {
                 <div key={item.id} className="item">
                   <i
                     style={{ color: item.color }}
-                    class="fa-solid fa-flask"
+                    className="fa-solid fa-flask"
                   ></i>{" "}
                   : {numberFormatter(item.count)}
                 </div>
@@ -49,8 +49,8 @@ function RightMenu() {
             <h3>Notifications</h3>
 
             <div className="items">
-              {user.notifications.map((item) => (
-                <p style={{ color: item.color }} className="item">
+              {user.notifications.map((item, index) => (
+                <p key={index} style={{ color: item.color }} className="item">
                   {item.not}
                 </p>
               ))}
@@ -59,16 +59,16 @@ function RightMenu() {
         </div>
         <div className="bottom">
           <button className="btn" onClick={() => marketWindow()}>
-            <i class="fa-solid fa-angles-up"></i>
+            <i className="fa-solid fa-angles-up"></i>
             Upgrades
           </button>
 
           <button onClick={() => potionWindow()}>
-            <i class="fa-solid fa-flask"></i>
+            <i className="fa-solid fa-flask"></i>
             Potion Craft
           </button>
           <button>
-            <i class="fa-solid fa-store"></i>
+            <i className="fa-solid fa-store"></i>
             Market
           </button>
         </div>

@@ -484,7 +484,7 @@ const initialState = {
 }
 
 
-export const productSlice = createSlice({
+export const coreSlice = createSlice({
     name: 'product',
     initialState,
     reducers: {
@@ -658,6 +658,6 @@ export const productSlice = createSlice({
 
 
 // Action creators are generated for each case reducer function
-export const { clickToGather, incrementByAmount, buyWorker, sellOneProduct, sellProdByPerc, upgradeGather, unlockProduct, changeUsername, makePotion, potionToExp, sendNotification } = productSlice.actions
+export const { clickToGather, incrementByAmount, buyWorker, sellOneProduct, sellProdByPerc, upgradeGather, unlockProduct, changeUsername, makePotion, potionToExp, sendNotification } = coreSlice.actions
 
-export default productSlice.reducer
+export default coreSlice.reducer

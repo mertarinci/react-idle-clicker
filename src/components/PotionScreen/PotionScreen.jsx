@@ -32,7 +32,7 @@ function PotionScreen() {
   return (
     <div className="potionScreen">
       <div className="closeBtn" onClick={() => potionScreenClose()}>
-        <i class="fa-solid fa-circle-xmark"></i>
+        <i className="fa-solid fa-circle-xmark"></i>
       </div>
       <div className="container">
         <div className="potionTitle">POTION CRAFT</div>
@@ -45,7 +45,10 @@ function PotionScreen() {
                 className="item"
                 onClick={() => setSelectedPot(item.id)}
               >
-                <i style={{ color: item.color }} class="fa-solid fa-flask"></i>
+                <i
+                  style={{ color: item.color }}
+                  className="fa-solid fa-flask"
+                ></i>
                 <span style={{ color: item.color }}>{item.name}</span>
               </div>
             ))}
@@ -57,19 +60,19 @@ function PotionScreen() {
             </h2>
             <i
               style={{ color: potions[selectedPot].color }}
-              class="fa-solid fa-flask"
+              className="fa-solid fa-flask"
             ></i>
             <p className="desc">{potions[selectedPot].desc}</p>
             <p className="icons">
               Materials needed:{" "}
               {potions[selectedPot].ingsToMake.map((item, index) => (
-                <div>
+                <span key={index}>
                   {numberFormatter(potions[selectedPot].materialNeed[index])}{" "}
                   <i
                     style={{ color: product[item].color, fontSize: "20px" }}
-                    class={product[item].icon}
+                    className={product[item].icon}
                   ></i>
-                </div>
+                </span>
               ))}
             </p>
             <div className="buttons">
@@ -100,13 +103,13 @@ function PotionScreen() {
             </div>
             <p>
               You Have:{" "}
-              {potions[selectedPot].ingsToMake.map((item) => (
-                <span key={item}>
+              {potions[selectedPot].ingsToMake.map((item, index) => (
+                <span key={index}>
                   {numberFormatter(product[item].count)}{" "}
                   {
                     <i
                       style={{ color: product[item].color, fontSize: "20px" }}
-                      class={product[item].icon}
+                      className={product[item].icon}
                     ></i>
                   }{" "}
                 </span>

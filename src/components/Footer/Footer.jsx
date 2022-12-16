@@ -8,14 +8,14 @@ function Footer() {
       <div className="center">
         <div className="icons">
           <a href="http://google.com" target="_blank" rel="noreferrer">
-            <i class="fa-brands fa-linkedin"></i>
+            <i className="fa-brands fa-linkedin"></i>
           </a>
           <a href="http://google.com" target="_blank" rel="noreferrer">
-            <i class="fa-brands fa-github"></i>
+            <i className="fa-brands fa-github"></i>
           </a>
 
           <a href="http://google.com" target="_blank" rel="noreferrer">
-            <i class="fa-brands fa-youtube"></i>
+            <i className="fa-brands fa-youtube"></i>
           </a>
         </div>
       </div>

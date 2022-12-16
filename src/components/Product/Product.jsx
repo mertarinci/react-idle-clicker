@@ -147,7 +147,7 @@ function Product({ prd }) {
         <div className="disabled">
           <h2 style={{ color: product.color }}>
             <span>
-              <i class="fa-solid fa-lock"></i>
+              <i className="fa-solid fa-lock"></i>
             </span>{" "}
             {product.name}
           </h2>

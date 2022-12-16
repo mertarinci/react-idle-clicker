@@ -26,7 +26,7 @@ function Market() {
   return (
     <div className="market">
       <div className="closeBtn" onClick={() => handleClick()}>
-        <i class="fa-solid fa-circle-xmark"></i>
+        <i className="fa-solid fa-circle-xmark"></i>
       </div>
       <h1 className="marketTitle">UPGRADES</h1>
       <div className="menu">
