@@ -24,7 +24,7 @@ const initialState = {
             workerEfficiency: 1,
             clickEfficiency: 1,
             worker: 0,
-            workerPrice: 1000,
+            workerPrice: 1500,
             color: "white",
             icon: "fa-solid fa-bone",
             sellPrice: 100,
@@ -38,7 +38,7 @@ const initialState = {
             workerEfficiency: 1,
             clickEfficiency: 1,
             worker: 0,
-            workerPrice: 20000,
+            workerPrice: 30000,
             color: '#f33939',
             icon: "fa-solid fa-droplet",
             sellPrice: 500,
@@ -53,7 +53,7 @@ const initialState = {
             workerEfficiency: 1,
             clickEfficiency: 1,
             worker: 0,
-            workerPrice: 100000,
+            workerPrice: 200000,
             color: "#82f884",
             icon: "fa-solid fa-shirt",
             sellPrice: 2000,
@@ -68,7 +68,7 @@ const initialState = {
             workerEfficiency: 1,
             clickEfficiency: 1,
             worker: 0,
-            workerPrice: 300000,
+            workerPrice: 1000000,
             color: "orange",
             icon: "fa-solid fa-moon",
             sellPrice: 10000,
@@ -83,7 +83,7 @@ const initialState = {
             workerEfficiency: 1,
             clickEfficiency: 1,
             worker: 0,
-            workerPrice: 10000000,
+            workerPrice: 650000000,
             color: "#a460ed",
             icon: "fa-solid fa-apple-whole",
             sellPrice: 50000,
@@ -99,7 +99,7 @@ const initialState = {
             workerEfficiency: 1,
             clickEfficiency: 1,
             worker: 0,
-            workerPrice: 30000000,
+            workerPrice: 300000000,
             color: "#50c878",
             icon: "fa-solid fa-gem",
             sellPrice: 1000000,
@@ -113,7 +113,7 @@ const initialState = {
             workerEfficiency: 1,
             clickEfficiency: 1,
             worker: 0,
-            workerPrice: 300000000,
+            workerPrice: 2000000000,
             color: "#4EE2EC",
             icon: "fa-solid fa-diamond",
             sellPrice: 10000000,
@@ -241,7 +241,7 @@ const initialState = {
             color: "orange",
             name: "Reach the moon!",
             desc: "Moon Dust click efficieny increase 50x.",
-            price: 300000000,
+            price: 100000000,
             isPurchased: false,
             parentIcon: "fa-solid fa-moon",
             typeUpg: "click",
@@ -253,7 +253,7 @@ const initialState = {
             color: "orange",
             name: "Bridge to moon!",
             desc: "Moon Dust workers efficieny increase 20x.",
-            price: 600000000,
+            price: 300000000,
             isPurchased: false,
             parentIcon: "fa-solid fa-moon",
             typeUpg: "worker",
@@ -550,7 +550,7 @@ export const coreSlice = createSlice({
                     state.user.totalGold -= state.upgrades[action.payload[0]].price
                     state.upgrades[action.payload[0]].isPurchased = true
 
-                    state.user.notifications.splice(0, 0, { not: `You upgraded ${state.product[action.payload[0]].name} click!`, color: `${state.product[action.payload[0]].name}` })
+                    state.user.notifications.splice(0, 0, { not: `You upgraded ${state.product[action.payload[1]].name} click!`, color: `${state.product[action.payload[1]].color}` })
 
                 }
 
@@ -560,7 +560,7 @@ export const coreSlice = createSlice({
                     state.user.totalGold -= state.upgrades[action.payload[0]].price
                     state.upgrades[action.payload[0]].isPurchased = true
 
-                    state.user.notifications.splice(0, 0, { not: `You upgraded ${state.product[action.payload[0]].name} workers!`, color: "orange" })
+                    state.user.notifications.splice(0, 0, { not: `You upgraded ${state.product[action.payload[1]].name} workers!`, color: `${state.product[action.payload[1]].color}` })
 
                 }
 
