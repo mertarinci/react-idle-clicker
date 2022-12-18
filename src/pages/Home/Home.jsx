@@ -13,6 +13,7 @@ import Footer from "../../components/Footer/Footer";
 import RightMenu from "../../components/RightMenu/RightMenu";
 import WelcomeScreen from "../../components/WelcomeScreen/WelcomeScreen";
 import PotionScreen from "../../components/PotionScreen/PotionScreen";
+import Exams from "../../components/Exams/Exams";
 
 function Home() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function Home() {
       <Header />
       <Market className="market" />
       <PotionScreen />
+      <Exams />
       {userState?.isNewPlayer ? <WelcomeScreen /> : <></>}
       <div
         style={{ opacity: userState?.isNewPlayer ? 0.2 : 1 }}

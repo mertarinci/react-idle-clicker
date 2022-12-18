@@ -21,6 +21,14 @@ function RightMenu() {
     game.opacity = 0.2;
   };
 
+  const examWindow = () => {
+    const examScreen = document.querySelector(".examScreen").style;
+    examScreen.opacity = 1;
+    examScreen.visibility = "visible";
+    const game = document.querySelector(".game").style;
+    game.opacity = 0.2;
+  };
+
   const potions = useSelector((state) => state.core.potions);
 
   const user = useSelector((state) => state.core.user);
@@ -67,9 +75,9 @@ function RightMenu() {
             <i className="fa-solid fa-flask"></i>
             Potion Craft
           </button>
-          <button>
-            <i className="fa-solid fa-store"></i>
-            Market
+          <button onClick={() => examWindow()}>
+            <i className="fa-solid fa-book"></i>
+            School Exams
           </button>
         </div>
 

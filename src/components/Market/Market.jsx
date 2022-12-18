@@ -30,11 +30,9 @@ function Market() {
       </div>
       <h1 className="marketTitle">UPGRADES</h1>
       <div className="menu">
-        {upgrades?.map((item) =>
-          item.isPurchased ? (
-            <></>
-          ) : (
-            <div key={item.id} className="item">
+        {upgrades?.map((item, index) =>
+          item.isPurchased ? null : (
+            <div key={index} className="item">
               <h4>
                 <i
                   style={{ color: item.color }}

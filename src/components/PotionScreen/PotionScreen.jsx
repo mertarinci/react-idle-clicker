@@ -11,6 +11,9 @@ function PotionScreen() {
     const market = document.querySelector(".market");
     market.style.opacity = 0;
     market.style.visibility = "hidden";
+    const exam = document.querySelector(".examScreen");
+    exam.style.opacity = 0;
+    exam.style.visibility = "hidden";
     potionScreen.style.visibility = "hidden";
     const game = document.querySelector(".game").style;
     game.opacity = 1;

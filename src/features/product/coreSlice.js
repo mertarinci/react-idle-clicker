@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 
@@ -470,11 +470,11 @@ const initialState = {
         {
             id: 11,
             count: 0,
-            color: "orange",
-            name: "Bloody Hell",
-            ingsToMake: [0, 2],
-            materialNeed: [100, 0, 10],
-            desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor for you, you can mix it with lemon.",
+            color: "red",
+            name: "I Love My Wife",
+            ingsToMake: [6, 7],
+            materialNeed: [99999999, 99999999],
+            desc: "This potion is a total fantasy. You don't need to make this potion for exams or anything else. This is just a potion dedicated for my (Author's) wife. ",
             sellPrice: 100,
             exp: 1.2
 

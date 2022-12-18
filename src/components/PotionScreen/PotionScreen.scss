@@ -35,8 +35,8 @@
       .potionList {
         display: inline-block;
         width: 300px;
-        height: 100%;
-        overflow: scroll;
+        height: 85%;
+        overflow: auto;
 
         &::-webkit-scrollbar {
           width: 0;
