@@ -4,6 +4,7 @@ import Market from "../../components/Market/Market";
 import Header from "../../components/Header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  checkUserClass,
   incrementByAmount,
   sendNotification,
 } from "../../features/product/coreSlice";

@@ -57,7 +57,7 @@ function Exams() {
           <div className="left">
             {midterms.map((item, index) =>
               item.isOpen ? (
-                <div key={index} className="quiz">
+                <div key={item.id} className="quiz">
                   <h2>{item.name}</h2>
                   <span>
                     Needed Potions : {item.potionNeeds[0]}
@@ -78,11 +78,13 @@ function Exams() {
                   />
                   <div className="buttons">
                     <button
+                      className="givePotBtn"
                       onClick={() => dispatch(midtermGivePot([0, item.id]))}
                     >
                       Give Potion #1
                     </button>
                     <button
+                      className="givePotBtn"
                       onClick={() => dispatch(midtermGivePot([1, item.id]))}
                     >
                       Give Potion #2
@@ -90,7 +92,7 @@ function Exams() {
                   </div>
                 </div>
               ) : (
-                <></>
+                <div key={index}></div>
               )
             )}
           </div>
@@ -118,19 +120,21 @@ function Exams() {
                   />
                   <div className="buttons">
                     <button
+                      className="givePotBtn"
                       onClick={() => dispatch(finalGivePot([0, item.id]))}
                     >
                       Give Potion #1
                     </button>
                     <button
-                      onClick={() => dispatch(finalGivePot([0, item.id]))}
+                      className="givePotBtn"
+                      onClick={() => dispatch(finalGivePot([1, item.id]))}
                     >
                       Give Potion #2
                     </button>
                   </div>
                 </div>
               ) : (
-                <></>
+                <div key={index}></div>
               )
             )}
           </div>

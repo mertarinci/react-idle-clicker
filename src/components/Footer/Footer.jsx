@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { devTools } from "../../features/product/coreSlice";
@@ -10,7 +11,7 @@ function Footer() {
 
   const handleClick = () => {
     setNum((prev) => (prev += 1));
-    if (num > 50 && num2 > 50) {
+    if (num > 1 && num2 > 1) {
       dispatch(devTools());
     }
   };
@@ -22,14 +23,18 @@ function Footer() {
       </div>
       <div className="center">
         <div className="icons">
-          <a href="http://google.com" target="_blank" rel="noreferrer">
+          <a href="#" rel="noreferrer">
             <i className="fa-brands fa-linkedin"></i>
           </a>
-          <a href="http://google.com" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/mertarinci"
+            target="_blank"
+            rel="noreferrer"
+          >
             <i className="fa-brands fa-github"></i>
           </a>
 
-          <a href="http://google.com" target="_blank" rel="noreferrer">
+          <a href="#" rel="noreferrer">
             <i className="fa-brands fa-youtube"></i>
           </a>
         </div>

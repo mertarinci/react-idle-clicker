@@ -365,7 +365,7 @@ const initialState = {
         },
         {
             id: 2,
-            count: 75,
+            count: 0,
             color: "orange",
             name: "Bloody Hell",
             ingsToMake: [0, 2],
@@ -377,7 +377,7 @@ const initialState = {
         },
         {
             id: 3,
-            count: 75,
+            count: 0,
             color: "#FF748C",
             name: "Fleshy Bone",
             ingsToMake: [1, 2],
@@ -389,7 +389,7 @@ const initialState = {
         },
         {
             id: 4,
-            count: 75,
+            count: 0,
             color: "#f17a00",
             name: "Shirt Dye",
             ingsToMake: [2, 3],
@@ -401,7 +401,7 @@ const initialState = {
 
         }, {
             id: 5,
-            count: 75,
+            count: 0,
             color: "#f1b651",
             name: "Sex on the Moon",
             ingsToMake: [0, 4],
@@ -788,7 +788,7 @@ export const coreSlice = createSlice({
                     }
 
 
-                    if (state.finals[action.payload[1]].progress >= 100) {
+                    if (state.finals[action.payload[1]].progress === 100) {
                         state.finals[action.payload[1]].completed = true
                     }
 

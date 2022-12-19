@@ -29,7 +29,6 @@ function Header() {
         <p style={makeBold} className="rightMenu-item">
           Class: {user.class}
         </p>
-
         <hr />
         <p style={makeBold} className="rightMenu-item">
           {user.username.length < 3 ? "Unkown" : user.username}
