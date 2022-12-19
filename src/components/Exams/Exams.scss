@@ -1,6 +1,6 @@
 .examScreen {
   width: 1000px;
-  height: 600px;
+  height: 620px;
   position: absolute;
   background: #393e46;
   top: 10%;
@@ -60,8 +60,11 @@
     gap: 10px;
 
     .title {
-      border-bottom: 2px solid #a460ed;
-      border-top: 2px solid #a460ed;
+      padding: 10px;
+      border-top: 2px solid lightgreen;
+      border-bottom: 2px solid rgb(246, 139, 157);
+      border-right: 2px solid rgb(246, 139, 157);
+      border-left: 2px solid lightgreen;
     }
 
     .quizes {

@@ -748,7 +748,7 @@ export const coreSlice = createSlice({
                 } else {
                     state.midterms[action.payload[1]].potionNeeds[action.payload[0]] -= 1
                     potion.count -= 1
-                    state.midterms[action.payload[1]].progress += 10
+                    state.midterms[action.payload[1]].progress += 0.50
 
                     if (state.midterms[action.payload[1]].progress === 100) {
                         state.midterms[action.payload[1]].completed = true
@@ -770,7 +770,7 @@ export const coreSlice = createSlice({
                 } else {
                     state.finals[action.payload[1]].potionNeeds[action.payload[0]] -= 1
                     potion.count -= 1
-                    state.finals[action.payload[1]].progress += 10
+                    state.finals[action.payload[1]].progress += 0.25
 
                     if (state.finals[action.payload[1]].progress === 100) {
                         state.finals[action.payload[1]].completed = true
