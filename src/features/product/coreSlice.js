@@ -83,10 +83,10 @@ const initialState = {
             workerEfficiency: 1,
             clickEfficiency: 1,
             worker: 0,
-            workerPrice: 650000000,
+            workerPrice: 65000000,
             color: "#a460ed",
             icon: "fa-solid fa-apple-whole",
-            sellPrice: 50000,
+            sellPrice: 100000,
             isOpen: false,
             openPrice: 1000000000
 
@@ -102,7 +102,7 @@ const initialState = {
             workerPrice: 300000000,
             color: "#50c878",
             icon: "fa-solid fa-gem",
-            sellPrice: 1000000,
+            sellPrice: 10000000,
             isOpen: false,
             openPrice: 20000000000
         },
@@ -116,9 +116,9 @@ const initialState = {
             workerPrice: 2000000000,
             color: "#4EE2EC",
             icon: "fa-solid fa-diamond",
-            sellPrice: 10000000,
+            sellPrice: 500000000,
             isOpen: false,
-            openPrice: 500000000000
+            openPrice: 300000000000
         }
     ],
     user: {
@@ -358,18 +358,18 @@ const initialState = {
             color: "#ffffc7",
             name: "Bone Lemonate",
             ingsToMake: [0, 1],
-            materialNeed: [10000, 1500],
+            materialNeed: [5000, 1500],
             desc: "Bitter combination of lemon and bone. Most of the alchemists can make this potion. This potion can make your bones stronger in order to fight with the evil.",
             sellPrice: 10,
             exp: 0.2
         },
         {
             id: 2,
-            count: 0,
+            count: 75,
             color: "orange",
             name: "Bloody Hell",
             ingsToMake: [0, 2],
-            materialNeed: [10000, 1500],
+            materialNeed: [8000, 1000],
             desc: "Have you ever tasted blood? Now you have to! You are fighting with the biggest evil Aringard has ever seen! Ofcourse you are going to drink that blood. A little favor, you can mix it with lemon!",
             sellPrice: 100,
             exp: 0.3
@@ -377,11 +377,11 @@ const initialState = {
         },
         {
             id: 3,
-            count: 0,
+            count: 75,
             color: "#FF748C",
             name: "Fleshy Bone",
             ingsToMake: [1, 2],
-            materialNeed: [7500, 2500],
+            materialNeed: [8000, 2000],
             desc: "These two ingredients shouldn't be combined but ehh, seems like it's working. Professor Dumblecunt used to love this potion. We don't know why but it gives a strange stamina to who drinks this potion.",
             sellPrice: 500000,
             exp: 0.4
@@ -389,7 +389,7 @@ const initialState = {
         },
         {
             id: 4,
-            count: 0,
+            count: 75,
             color: "#f17a00",
             name: "Shirt Dye",
             ingsToMake: [2, 3],
@@ -401,11 +401,11 @@ const initialState = {
 
         }, {
             id: 5,
-            count: 0,
+            count: 75,
             color: "#f1b651",
             name: "Sex on the Moon",
             ingsToMake: [0, 4],
-            materialNeed: [200000, 10000],
+            materialNeed: [100000, 20000],
             desc: "Who doesn't like lemonade? But if you put some Moon Dust in it, you can make this magical potion. With this energetic potion, you can make your energy high to moon!",
             sellPrice: 100,
             exp: 0.6
@@ -416,7 +416,7 @@ const initialState = {
             color: "#f14d51",
             name: "Blood and Love",
             ingsToMake: [2, 4],
-            materialNeed: [150000, 30000],
+            materialNeed: [75000, 30000],
             desc: "You can mix everything but can you make meaningful potions? This potion represent love and violent such as lovers in the moonlight and violent that shedding blood.",
             sellPrice: 100,
             exp: 0.7
@@ -428,7 +428,7 @@ const initialState = {
             color: "#ec85ff",
             name: "Candy Apple",
             ingsToMake: [1, 5],
-            materialNeed: [100000, 10000],
+            materialNeed: [50000, 10000],
             desc: "You know candy apple right? Apple on the stick, cover with melted sugar. Now the stick is bone and the apple is ... regular apple... isn't it?  Trust me, it's delicious (even in liquid form)!",
             sellPrice: 100,
             exp: 0.8
@@ -440,7 +440,7 @@ const initialState = {
             color: "#9acd32",
             name: "Dusty Gem",
             ingsToMake: [4, 6],
-            materialNeed: [70000, 20000],
+            materialNeed: [35000, 10000],
             desc: "This potion only made by master alchemists. I believe name is self explanatory but if you want to hear from me, listen. Put some moon dust and emerald in to the cauldron and voilà!",
             sellPrice: 100,
             exp: 0.9
@@ -451,7 +451,7 @@ const initialState = {
             color: "#008080",
             name: "Diamondcitrus",
             ingsToMake: [0, 7],
-            materialNeed: [700000, 5000],
+            materialNeed: [100000, 2000],
             desc: "The most delicious and attractive potion. It's color is the favorite by alchemist society. You have to put tons of lemons in order melt the diamonds that you put. Do i have to mention this potion is really (like really) rare? ",
             sellPrice: 100,
             exp: 1
@@ -463,7 +463,7 @@ const initialState = {
             color: "#40E0D0",
             name: "Endgame",
             ingsToMake: [6, 7],
-            materialNeed: [100000, 100000],
+            materialNeed: [10000, 10000],
             desc: "Do you know why alchemists called this 'Endgame'? Because this is the one eternal potion can defeat the evil! It is almost imposible to make this potion but if you can, that's end of the game!",
             sellPrice: 100,
             exp: 10
@@ -597,7 +597,7 @@ export const coreSlice = createSlice({
                 var times = action.payload[1]
 
                 for (var i = 0; i < times; i++) {
-                    state.product[action.payload[0]].workerPrice += Math.ceil(state.product[action.payload[0]].workerPrice * 0.08)
+                    state.product[action.payload[0]].workerPrice += Math.ceil(state.product[action.payload[0]].workerPrice * 0.07)
                 }
 
 
@@ -738,17 +738,25 @@ export const coreSlice = createSlice({
 
         midtermGivePot: (state, action) => {
 
+            let potionNeed = state.midterms[action.payload[1]].potionNeeds[action.payload[0]]
             let potionNumber = state.midterms[action.payload[1]].potionNums[action.payload[0]]
             let potion = state.potions[potionNumber]
+
 
             if (potion.count > 0) {
 
                 if (state.midterms[action.payload[1]].potionNeeds[action.payload[0]] === 0) {
                     return
                 } else {
-                    state.midterms[action.payload[1]].potionNeeds[action.payload[0]] -= 1
-                    potion.count -= 1
-                    state.midterms[action.payload[1]].progress += 0.50
+                    if (potion.count >= potionNeed) {
+                        state.midterms[action.payload[1]].progress += 0.50 * state.midterms[action.payload[1]].potionNeeds[action.payload[0]]
+                        state.potions[potionNumber].count -= state.midterms[action.payload[1]].potionNeeds[action.payload[0]]
+                        state.midterms[action.payload[1]].potionNeeds[action.payload[0]] = 0
+                    } else {
+                        state.midterms[action.payload[1]].progress += 0.50 * potion.count
+                        state.midterms[action.payload[1]].potionNeeds[action.payload[0]] -= state.potions[potionNumber].count
+                        state.potions[potionNumber].count = 0
+                    }
 
                     if (state.midterms[action.payload[1]].progress === 100) {
                         state.midterms[action.payload[1]].completed = true
@@ -760,6 +768,7 @@ export const coreSlice = createSlice({
         },
         finalGivePot: (state, action) => {
 
+            let potionNeed = state.finals[action.payload[1]].potionNeeds[action.payload[0]]
             let potionNumber = state.finals[action.payload[1]].potionNums[action.payload[0]]
             let potion = state.potions[potionNumber]
 
@@ -768,11 +777,18 @@ export const coreSlice = createSlice({
                 if (state.finals[action.payload[1]].potionNeeds[action.payload[0]] === 0) {
                     return
                 } else {
-                    state.finals[action.payload[1]].potionNeeds[action.payload[0]] -= 1
-                    potion.count -= 1
-                    state.finals[action.payload[1]].progress += 0.25
+                    if (potion.count >= potionNeed) {
+                        state.finals[action.payload[1]].progress += 0.25 * state.finals[action.payload[1]].potionNeeds[action.payload[0]]
+                        state.potions[potionNumber].count -= state.finals[action.payload[1]].potionNeeds[action.payload[0]]
+                        state.finals[action.payload[1]].potionNeeds[action.payload[0]] = 0
+                    } else {
+                        state.finals[action.payload[1]].progress += 0.25 * potion.count
+                        state.finals[action.payload[1]].potionNeeds[action.payload[0]] -= state.potions[potionNumber].count
+                        state.potions[potionNumber].count = 0
+                    }
 
-                    if (state.finals[action.payload[1]].progress === 100) {
+
+                    if (state.finals[action.payload[1]].progress >= 100) {
                         state.finals[action.payload[1]].completed = true
                     }
 
