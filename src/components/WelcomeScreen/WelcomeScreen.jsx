@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./WelcomeScreen.scss";
 import { changeUsername } from "../../features/product/coreSlice";
 
@@ -15,6 +15,8 @@ function WelcomeScreen() {
 
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
+
+  const user = useSelector((state) => state.core.user);
 
   const handleChange = (e) => {
     setUsername(e.target.value);
@@ -45,7 +47,10 @@ function WelcomeScreen() {
         ingrediants or{" "}
         <span style={{ color: "green", fontWeight: "bold" }}>BUY WORKERS</span>{" "}
         for automated gathering. You can make potions on{" "}
-        <b style={{ color: "#a460ed" }}>POTION CRAFT</b> section.
+        <b style={{ color: "#a460ed" }}>POTION CRAFT</b> section. In the end,
+        you have to pass all of your exams in{" "}
+        <b style={{ color: "lightgreen" }}>SCHOOL EXAMS </b>to complete your
+        journey.
       </p>
 
       <div className="input">

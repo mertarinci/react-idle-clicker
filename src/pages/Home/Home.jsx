@@ -14,6 +14,7 @@ import RightMenu from "../../components/RightMenu/RightMenu";
 import WelcomeScreen from "../../components/WelcomeScreen/WelcomeScreen";
 import PotionScreen from "../../components/PotionScreen/PotionScreen";
 import Exams from "../../components/Exams/Exams";
+import EndScreen from "../../components/EndScreen/EndScreen";
 
 function Home() {
   const dispatch = useDispatch();
@@ -49,6 +50,11 @@ function Home() {
       <PotionScreen />
       <Exams />
       {userState?.isNewPlayer ? <WelcomeScreen /> : <></>}
+      {userState?.isGameOver && userState?.endGameScreen ? (
+        <EndScreen />
+      ) : (
+        <></>
+      )}
       <div
         style={{ opacity: userState?.isNewPlayer ? 0.2 : 1 }}
         className="game"

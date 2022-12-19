@@ -29,13 +29,14 @@ function Header() {
         <p style={makeBold} className="rightMenu-item">
           Class: {user.class}
         </p>
-        <hr />
-        <p style={makeBold} className="rightMenu-item">
-          Debt: 100$
-        </p>
+
         <hr />
         <p style={makeBold} className="rightMenu-item">
           {user.username.length < 3 ? "Unkown" : user.username}
+        </p>
+        <hr />
+        <p style={makeBold} className="rightMenu-item">
+          Game Info
         </p>
       </div>
     </div>

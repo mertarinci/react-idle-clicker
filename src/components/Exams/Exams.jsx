@@ -1,10 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  checkUserClass,
+  finalGivePot,
+  midtermGivePot,
+} from "../../features/product/coreSlice";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import "./Exams.scss";
 
 function Exams() {
   const user = useSelector((state) => state.core.user);
+  const midterms = useSelector((state) => state.core.midterms);
+  const finals = useSelector((state) => state.core.finals);
+  const potions = useSelector((state) => state.core.potions);
+
+  const dispatch = useDispatch();
+  dispatch(checkUserClass());
 
   const examsScreenClose = () => {
     const potionScreen = document.querySelector(".potionScreen");
@@ -44,44 +55,84 @@ function Exams() {
         </div>
         <div className="quizes">
           <div className="left">
-            <div className="quiz">
-              <h2>Midterm #1</h2>
-              <span>Needed Potions : 100x X - 200x Y</span>
-              <ProgressBar progress={30} width={60} bgcolor={"#a460ed"} />
-              <div className="buttons">
-                <button>Give Potion #1</button>
-                <button>Give Potion #2</button>
-              </div>
-            </div>
-            <div className="quiz">
-              <h2>Midterm #2</h2>
-              <span>Needed Potions : 100x X - 200x Y</span>
-              <ProgressBar progress={30} width={60} bgcolor={"#a460ed"} />
-              <div className="buttons">
-                <button>Give Potion #1</button>
-                <button>Give Potion #2</button>
-              </div>
-            </div>
+            {midterms.map((item, index) =>
+              item.isOpen ? (
+                <div key={index} className="quiz">
+                  <h2>{item.name}</h2>
+                  <span>
+                    Needed Potions : {item.potionNeeds[0]}
+                    <i
+                      style={{ color: potions[item.potionNums[0]].color }}
+                      className="fa-solid fa-flask"
+                    ></i>{" "}
+                    {item.potionNeeds[1]}
+                    <i
+                      style={{ color: potions[item.potionNums[1]].color }}
+                      className="fa-solid fa-flask"
+                    ></i>{" "}
+                  </span>
+                  <ProgressBar
+                    progress={item.progress}
+                    width={60}
+                    bgcolor={"#a460ed"}
+                  />
+                  <div className="buttons">
+                    <button
+                      onClick={() => dispatch(midtermGivePot([0, item.id]))}
+                    >
+                      Give Potion #1
+                    </button>
+                    <button
+                      onClick={() => dispatch(midtermGivePot([1, item.id]))}
+                    >
+                      Give Potion #2
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <></>
+              )
+            )}
           </div>
           <div className="right">
-            <div className="quiz">
-              <h2>Final Exam #1</h2>
-              <span>Needed Potions : 100x X - 200x Y</span>
-              <ProgressBar progress={30} width={60} bgcolor={"#a460ed"} />
-              <div className="buttons">
-                <button>Give Potion #1</button>
-                <button>Give Potion #2</button>
-              </div>
-            </div>
-            <div className="quiz">
-              <h2>Final Exam #2</h2>
-              <span>Needed Potions : 100x X - 200x Y</span>
-              <ProgressBar progress={30} width={60} bgcolor={"#a460ed"} />
-              <div className="buttons">
-                <button>Give Potion #1</button>
-                <button>Give Potion #2</button>
-              </div>
-            </div>
+            {finals.map((item, index) =>
+              item.isOpen ? (
+                <div key={index} className="quiz">
+                  <h2>{item.name}</h2>
+                  <span>
+                    Needed Potions : {item.potionNeeds[0]}
+                    <i
+                      style={{ color: potions[item.potionNums[0]].color }}
+                      className="fa-solid fa-flask"
+                    ></i>{" "}
+                    {item.potionNeeds[1]}
+                    <i
+                      style={{ color: potions[item.potionNums[1]].color }}
+                      className="fa-solid fa-flask"
+                    ></i>{" "}
+                  </span>
+                  <ProgressBar
+                    progress={item.progress}
+                    width={60}
+                    bgcolor={"#a460ed"}
+                  />
+                  <div className="buttons">
+                    <button
+                      onClick={() => dispatch(finalGivePot([0, item.id]))}
+                    >
+                      Give Potion #1
+                    </button>
+                    <button
+                      onClick={() => dispatch(finalGivePot([0, item.id]))}
+                    >
+                      Give Potion #2
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <></>
+              )
+            )}
           </div>
         </div>
       </div>

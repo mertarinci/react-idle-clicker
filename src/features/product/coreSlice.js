@@ -122,7 +122,7 @@ const initialState = {
         }
     ],
     user: {
-        isNewPlayer: false,
+        isNewPlayer: true,
         username: "Unkown",
         currentExp: 0,
         expProgress: 0,
@@ -131,7 +131,9 @@ const initialState = {
         class: 1,
         totalGold: 0,
         notifications: [
-        ]
+        ],
+        isGameOver: false,
+        endGameScreen: true
 
     },
     upgrades: [
@@ -391,7 +393,7 @@ const initialState = {
             color: "#f17a00",
             name: "Shirt Dye",
             ingsToMake: [2, 3],
-            materialNeed: [7500, 1500],
+            materialNeed: [75000, 15000],
             desc: "Go in front of cauldron and add dwarf shirts and couple of blood. Puff! Now you have shirt dye. You can either sell it for a good price or dye your clothes.",
             sellPrice: 100,
             exp: 0.5
@@ -403,7 +405,7 @@ const initialState = {
             color: "#f1b651",
             name: "Sex on the Moon",
             ingsToMake: [0, 4],
-            materialNeed: [50000, 1000],
+            materialNeed: [200000, 10000],
             desc: "Who doesn't like lemonade? But if you put some Moon Dust in it, you can make this magical potion. With this energetic potion, you can make your energy high to moon!",
             sellPrice: 100,
             exp: 0.6
@@ -414,7 +416,7 @@ const initialState = {
             color: "#f14d51",
             name: "Blood and Love",
             ingsToMake: [2, 4],
-            materialNeed: [25000, 3000],
+            materialNeed: [150000, 30000],
             desc: "You can mix everything but can you make meaningful potions? This potion represent love and violent such as lovers in the moonlight and violent that shedding blood.",
             sellPrice: 100,
             exp: 0.7
@@ -426,7 +428,7 @@ const initialState = {
             color: "#ec85ff",
             name: "Candy Apple",
             ingsToMake: [1, 5],
-            materialNeed: [100000, 1000],
+            materialNeed: [100000, 10000],
             desc: "You know candy apple right? Apple on the stick, cover with melted sugar. Now the stick is bone and the apple is ... regular apple... isn't it?  Trust me, it's delicious (even in liquid form)!",
             sellPrice: 100,
             exp: 0.8
@@ -438,7 +440,7 @@ const initialState = {
             color: "#9acd32",
             name: "Dusty Gem",
             ingsToMake: [4, 6],
-            materialNeed: [15000, 2000],
+            materialNeed: [70000, 20000],
             desc: "This potion only made by master alchemists. I believe name is self explanatory but if you want to hear from me, listen. Put some moon dust and emerald in to the cauldron and voilà!",
             sellPrice: 100,
             exp: 0.9
@@ -449,7 +451,7 @@ const initialState = {
             color: "#008080",
             name: "Diamondcitrus",
             ingsToMake: [0, 7],
-            materialNeed: [1000000, 5000],
+            materialNeed: [700000, 5000],
             desc: "The most delicious and attractive potion. It's color is the favorite by alchemist society. You have to put tons of lemons in order melt the diamonds that you put. Do i have to mention this potion is really (like really) rare? ",
             sellPrice: 100,
             exp: 1
@@ -461,7 +463,7 @@ const initialState = {
             color: "#40E0D0",
             name: "Endgame",
             ingsToMake: [6, 7],
-            materialNeed: [1000000, 1000000],
+            materialNeed: [100000, 100000],
             desc: "Do you know why alchemists called this 'Endgame'? Because this is the one eternal potion can defeat the evil! It is almost imposible to make this potion but if you can, that's end of the game!",
             sellPrice: 100,
             exp: 10
@@ -473,11 +475,97 @@ const initialState = {
             color: "red",
             name: "I Love My Wife",
             ingsToMake: [6, 7],
-            materialNeed: [99999999, 99999999],
+            materialNeed: [9999999999999999, 9999999999999999],
             desc: "This potion is a total fantasy. You don't need to make this potion for exams or anything else. This is just a potion dedicated for my (Author's) wife. ",
             sellPrice: 100,
             exp: 1.2
 
+        },
+    ],
+    midterms: [
+        {
+            id: 0,
+            class: 1,
+            name: "Midterm Exam No.1",
+            isOpen: true,
+            potionNums: [0, 1],
+            potionNeeds: [100, 100],
+            progress: 0,
+            completed: false
+        },
+        {
+            id: 1,
+            class: 1,
+            name: "Midterm Exam No.2",
+            isOpen: true,
+            potionNums: [2, 3],
+            potionNeeds: [100, 100],
+            progress: 0,
+            completed: false
+        },
+        {
+            id: 2,
+            class: 2,
+            name: "Midterm Exam No.3",
+            isOpen: false,
+            potionNums: [4, 5],
+            potionNeeds: [100, 100],
+            progress: 0,
+            completed: false
+        },
+        {
+            id: 3,
+            class: 2,
+            name: "Midterm Exam No.4",
+            isOpen: false,
+            potionNums: [6, 7],
+            potionNeeds: [100, 100],
+            progress: 0,
+            completed: false
+        },
+
+
+    ],
+    finals: [
+        {
+            id: 0,
+            class: 1,
+            name: "Final Exam No.1",
+            isOpen: true,
+            potionNums: [1, 3],
+            potionNeeds: [200, 200],
+            progress: 0,
+            completed: false
+        },
+        {
+            id: 1,
+            class: 1,
+            name: "Final Exam No.2",
+            isOpen: true,
+            potionNums: [4, 5],
+            potionNeeds: [200, 200],
+            progress: 0,
+            completed: false
+        },
+        {
+            id: 2,
+            class: 2,
+            name: "Final Exam No.3",
+            isOpen: false,
+            potionNums: [7, 8],
+            potionNeeds: [200, 200],
+            progress: 0,
+            completed: false
+        },
+        {
+            id: 3,
+            class: 2,
+            name: "Final Exam No.4",
+            isOpen: false,
+            potionNums: [9, 10],
+            potionNeeds: [200, 200],
+            progress: 0,
+            completed: false
         },
     ]
 
@@ -581,6 +669,7 @@ export const coreSlice = createSlice({
         changeUsername: (state, action) => {
 
             state.user.username = action.payload
+            state.user.isNewPlayer = false
 
         },
 
@@ -640,15 +729,103 @@ export const coreSlice = createSlice({
             }
 
 
-        }, sendNotification: (state, action) => {
+        },
+        sendNotification: (state, action) => {
 
             state.user.notifications.splice(0, 0, { not: `${action.payload.not}`, color: `${action.payload.color}` })
 
+        },
+
+        midtermGivePot: (state, action) => {
+
+            let potionNumber = state.midterms[action.payload[1]].potionNums[action.payload[0]]
+            let potion = state.potions[potionNumber]
+
+            if (potion.count > 0) {
+
+                if (state.midterms[action.payload[1]].potionNeeds[action.payload[0]] === 0) {
+                    return
+                } else {
+                    state.midterms[action.payload[1]].potionNeeds[action.payload[0]] -= 1
+                    potion.count -= 1
+                    state.midterms[action.payload[1]].progress += 10
+
+                    if (state.midterms[action.payload[1]].progress === 100) {
+                        state.midterms[action.payload[1]].completed = true
+                    }
+
+
+                }
+            }
+        },
+        finalGivePot: (state, action) => {
+
+            let potionNumber = state.finals[action.payload[1]].potionNums[action.payload[0]]
+            let potion = state.potions[potionNumber]
+
+            if (potion.count > 0) {
+
+                if (state.finals[action.payload[1]].potionNeeds[action.payload[0]] === 0) {
+                    return
+                } else {
+                    state.finals[action.payload[1]].potionNeeds[action.payload[0]] -= 1
+                    potion.count -= 1
+                    state.finals[action.payload[1]].progress += 10
+
+                    if (state.finals[action.payload[1]].progress === 100) {
+                        state.finals[action.payload[1]].completed = true
+                    }
+
+
+                }
+            }
+        },
+
+
+        devTools: (state, action) => {
+
+
+            for (let i = 0; i < state.potions.length; i++) {
+                state.potions[i].count = 9999999
+            }
+
+        },
+
+        checkUserClass: (state) => {
+
+
+            if (
+                state.midterms[0].completed === true && state.midterms[1].completed === true && state.finals[0].completed === true && state.finals[1].completed === true
+            ) {
+                state.user.class = 2
+
+                // MIDTERMS
+
+                state.midterms[0].isOpen = false
+                state.midterms[1].isOpen = false
+                state.midterms[2].isOpen = true
+                state.midterms[3].isOpen = true
+
+                // FINALS
+
+                state.finals[0].isOpen = false
+                state.finals[1].isOpen = false
+                state.finals[2].isOpen = true
+                state.finals[3].isOpen = true
+
+                if (
+                    state.midterms[2].completed === true && state.midterms[3].completed === true && state.finals[2].completed === true && state.finals[3].completed === true
+                ) {
+                    state.user.isGameOver = true
+                }
+
+            }
+        },
+        isEndGame: (state, action) => {
+            state.user.endGameScreen = action.payload
         }
 
-
-    },
-
+    }
 
 })
 
@@ -658,6 +835,6 @@ export const coreSlice = createSlice({
 
 
 // Action creators are generated for each case reducer function
-export const { clickToGather, incrementByAmount, buyWorker, sellOneProduct, sellProdByPerc, upgradeGather, unlockProduct, changeUsername, makePotion, potionToExp, sendNotification } = coreSlice.actions
+export const { clickToGather, incrementByAmount, buyWorker, sellOneProduct, sellProdByPerc, upgradeGather, unlockProduct, changeUsername, makePotion, potionToExp, sendNotification, midtermGivePot, devTools, checkUserClass, finalGivePot, isEndGame } = coreSlice.actions
 
 export default coreSlice.reducer
