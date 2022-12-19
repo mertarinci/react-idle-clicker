@@ -11,7 +11,7 @@ function Footer() {
 
   const handleClick = () => {
     setNum((prev) => (prev += 1));
-    if (num > 1 && num2 > 1) {
+    if (num > 50 && num2 > 50) {
       dispatch(devTools());
     }
   };

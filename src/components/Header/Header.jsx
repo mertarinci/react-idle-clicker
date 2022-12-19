@@ -14,7 +14,7 @@ function Header() {
   return (
     <div className="header">
       <div className="left">
-        <h1>Witch Cauldron</h1>
+        <h1>Alchemist's Journey</h1>
       </div>
       <div className="center">
         <ProgressBar progress={user.expProgress} bgcolor={"#a460ed"} />
